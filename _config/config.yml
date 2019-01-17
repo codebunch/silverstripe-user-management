@@ -1,0 +1,5 @@
+SilverStripe\Security\Security:
+    login_url: 
+        "user-login-1"
+    lost_password_url:
+        "forgotten-password"

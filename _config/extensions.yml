@@ -1,0 +1,28 @@
+---
+Name: user-management-extensions
+After: framework/routes#coreroutes
+---
+
+SilverStripe\Security\Member:
+  extensions:
+    - UserManagement\Extension\MemberExtension
+
+SilverStripe\Security\Group:
+  extensions:
+    - UserManagement\Extension\GroupExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - UserManagement\Extension\UserManagementConfigExtension
+
+PageController:
+  extensions:
+    - UserManagement\Extension\ViewableuserInfoExtension
+
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\MemberAuthenticator\LoginHandler:
+     class: UserManagement\Extension\LoginHandlerExtension
+
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\Security:
+    class: SilverStripe\Security\SecurityExtension
