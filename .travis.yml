@@ -5,6 +5,13 @@ language: php
 env:
   global:
     - COMPOSER_ROOT_VERSION="4.0.x-dev"
+    - SS_BASE_URL="http://localhost:8080/"
+    - SS_DATABASE_CLASS="MySQLPDODatabase"
+    - SS_ENVIRONMENT_TYPE="dev"
+    - SS_DATABASE_NAME="custom-module"
+    - SS_DATABASE_PASSWORD="root"
+    - SS_DATABASE_SERVER="localhost"
+    - SS_DATABASE_USERNAME="root"
 
 dist: trusty
 
@@ -24,7 +31,7 @@ fast_finish: true
 before_script:
   - phpenv rehash
   - phpenv config-rm xdebug.ini || true
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS custom-module;'
   - echo 'memory_limit = 3096M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - export PATH=~/.composer/vendor/bin:$PATH
       # Install composer dependencies
@@ -36,6 +43,7 @@ before_script:
   - php vendor/silverstripe/framework/cli-script.php dev/build "flush=1"
 
 script:
+  - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit tests/Pages; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml -vvv; fi
   - if [[ $PHPCS_TEST ]]; then   - DB_USER=root DB_PASSWD= vendor/bin/phpcs src/ tests/; fi
   
