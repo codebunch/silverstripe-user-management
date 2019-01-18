@@ -33,12 +33,11 @@ before_script:
   - composer self-update || true
   - composer require --no-update silverstripe/recipe-cms:4.2.x-dev
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
-  - php ~/travis-support/travis_setup.php --source `pwd` --target ~/build/ss --require undefinedoffset/sortablegridfield:~0.6.9
   - cd ~/build/ss
   - composer install
 
 script:
-  - vendor/bin/phpunit "$COVERAGE" dms/tests
+  - vendor/bin/phpunit "$COVERAGE" tests/Pages
   
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
