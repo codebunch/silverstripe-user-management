@@ -36,7 +36,6 @@ before_script:
   - php vendor/silverstripe/framework/cli-script.php dev/build "flush=1"
 
 script:
-  - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml -vvv; fi
   - if [[ $PHPCS_TEST ]]; then   - DB_USER=root DB_PASSWD= vendor/bin/phpcs src/ tests/; fi
   
