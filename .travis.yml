@@ -36,7 +36,7 @@ before_script:
   - composer install
 
 script:
-  - vendor/bin/phpunit "$COVERAGE" tests/Pages
+  - vendor/bin/phpunit "$COVERAGE" silverstripe-user-management/tests
   
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
