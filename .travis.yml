@@ -20,6 +20,8 @@ fast_finish: true
 
 before_script:
   - phpenv rehash
+  - phpenv config-rm xdebug.ini || true
+  - echo 'memory_limit = 3096M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - export PATH=~/.composer/vendor/bin:$PATH
       # Install composer dependencies
   - composer validate
