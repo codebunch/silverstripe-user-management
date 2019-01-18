@@ -12,7 +12,7 @@ env:
     - SS_DATABASE_PASSWORD=""
     - SS_DATABASE_SERVER="localhost"
     - SS_DATABASE_USERNAME="root"
-    - DB=MYSQL CORE_RELEASE=3.5
+    - DB=MYSQL CORE_RELEASE=4.0
 
 dist: trusty
 
@@ -21,7 +21,7 @@ matrix:
     - php: 7.1
       env: DB=MYSQL CORE_RELEASE=4.2.x-dev
     - php: 7.1
-      env: DB=MYSQL CORE_RELEASE=4 COVERAGE="--coverage-clover=coverage.xml"
+      env: DB=MYSQL CORE_RELEASE=4.0 COVERAGE="--coverage-clover=coverage.xml"
 
 fast_finish: true
 
