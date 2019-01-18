@@ -31,9 +31,9 @@ before_script:
   - composer global require squizlabs/php_codesniffer:^3 --prefer-dist --no-interaction --no-progress --no-suggest -o
   - composer self-update || true
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
+  - composer create-project silverstripe/installer ~/build/ss 4.2.1
   - php ~/travis-support/travis_setup.php --source `pwd` --target ~/build/ss
   - cd ~/build/ss
-  - composer create-project silverstripe/installer . 4.2.1
   - composer require beanjuice/silverstripe-user-management
 
 script:
