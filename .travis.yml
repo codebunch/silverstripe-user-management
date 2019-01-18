@@ -4,7 +4,6 @@ language: php
 
 env:
   global:
-    - COMPOSER_ROOT_VERSION="4.0.x-dev"
     - SS_BASE_URL="http://localhost:8080/"
     - SS_DATABASE_CLASS="MySQLPDODatabase"
     - SS_ENVIRONMENT_TYPE="dev"
@@ -12,16 +11,16 @@ env:
     - SS_DATABASE_PASSWORD=""
     - SS_DATABASE_SERVER="localhost"
     - SS_DATABASE_USERNAME="root"
-    - DB=MYSQL CORE_RELEASE=4.0
+    - DB=MYSQL CORE_RELEASE=4.2.1
 
 dist: trusty
 
 matrix:
   include:
     - php: 7.1
-      env: DB=MYSQL CORE_RELEASE=4.2.x-dev
+      env: DB=MYSQL CORE_RELEASE=4.2.1
     - php: 7.1
-      env: DB=MYSQL CORE_RELEASE=4.0 COVERAGE="--coverage-clover=coverage.xml"
+      env: DB=MYSQL CORE_RELEASE=4.2.1 COVERAGE="--coverage-clover=coverage.xml"
 
 fast_finish: true
 
@@ -31,7 +30,6 @@ before_script:
   - composer validate
   - composer global require squizlabs/php_codesniffer:^3 --prefer-dist --no-interaction --no-progress --no-suggest -o
   - composer self-update || true
-  - composer require --no-update silverstripe/recipe-cms:4.2.x-dev
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
   - php ~/travis-support/travis_setup.php --source `pwd` --target ~/build/ss
   - cd ~/build/ss
