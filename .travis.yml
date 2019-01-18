@@ -12,6 +12,13 @@ env:
     - SS_DATABASE_SERVER="localhost"
     - SS_DATABASE_USERNAME="root"
     - DB=MYSQL CORE_RELEASE=4.2.1
+    - line1="SS_BASE_URL=\"http://localhost:8080/\""
+    - line2=SS_DATABASE_CLASS="\"MySQLPDODatabase\""
+    - line3=SS_DATABASE_NAME="\"test\""
+    - line4=SS_DATABASE_PASSWORD="\"root\""
+    - line5=SS_DATABASE_SERVER="\"localhost\""
+    - line6=SS_DATABASE_USERNAME="\"\""
+    - line7=SS_ERROR_LOG="\"error.log\""
 
 dist: trusty
 
@@ -33,7 +40,17 @@ before_script:
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
   - composer create-project silverstripe/installer ~/build/ss 4.2.1
   - cd ~/build/ss
+  - mysql -u root -p -e "create database if not exists test;"
+  - .env
+  - echo "$line1" >>.env
+  - echo "$line2" >>.env
+  - echo "$line3" >>.env
+  - echo "$line4" >>.env
+  - echo "$line5" >>.env
+  - echo "$line6" >>.env
+  - echo "$line7" >>.env
   - composer require beanjuice/silverstripe-user-management
+  - php vendor/silverstripe/framework/cli-script.php dev/build
 
 script:
   - vendor/bin/phpunit "$COVERAGE" vendor/beanjuice/silverstripe-user-management/tests/Pages/*
