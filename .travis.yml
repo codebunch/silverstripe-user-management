@@ -9,7 +9,7 @@ env:
     - SS_DATABASE_CLASS="MySQLPDODatabase"
     - SS_ENVIRONMENT_TYPE="dev"
     - SS_DATABASE_NAME="test"
-    - SS_DATABASE_PASSWORD="root"
+    - SS_DATABASE_PASSWORD=""
     - SS_DATABASE_SERVER="localhost"
     - SS_DATABASE_USERNAME="root"
 
@@ -32,8 +32,6 @@ before_script:
   - phpenv rehash
   - phpenv config-rm xdebug.ini || true
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
-  - mysql -u root -e "GRANT ALL ON test.* TO 'root'@'localhost';"
   - echo 'memory_limit = 3096M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - export PATH=~/.composer/vendor/bin:$PATH
       # Install composer dependencies
