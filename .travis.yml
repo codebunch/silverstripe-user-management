@@ -40,8 +40,8 @@ before_script:
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
   - composer create-project silverstripe/installer ~/build/ss 4.2.1
   - cd ~/build/ss
-  - mysql -u root -p -e "create database if not exists test;"
-  - .env
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - touch .env
   - echo "$line1" >>.env
   - echo "$line2" >>.env
   - echo "$line3" >>.env
