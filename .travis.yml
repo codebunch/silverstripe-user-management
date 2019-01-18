@@ -33,8 +33,8 @@ before_script:
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
   - php ~/travis-support/travis_setup.php --source `pwd` --target ~/build/ss
   - cd ~/build/ss
-  - composer require --no-update silverstripe/recipe-cms:4.2.1
-  - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
+  - composer create-project silverstripe/installer . 4.2.1
+  - composer require beanjuice/silverstripe-user-management
 
 script:
   - vendor/bin/phpunit "$COVERAGE" vendor/beanjuice/silverstripe-user-management/tests/Pages/*
