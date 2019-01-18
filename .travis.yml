@@ -1,10 +1,13 @@
+sudo: false
+
 language: php
+
+env:
+  global:
+    - COMPOSER_ROOT_VERSION="4.0.x-dev"
 
 dist: trusty
 
-cache:
-  directories:
-    - $HOME/.composer/cache/files
 matrix:
   include:
     - php: 7.0
