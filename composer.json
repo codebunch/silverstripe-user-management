@@ -1,5 +1,5 @@
 {
-  "name": "beanjuice/user-management",
+  "name": "beanjuice/silverstripe-user-management",
   "description": "User management module",
   "license": "BSD-2-Clause",
   "type": "silverstripe-vendormodule",
