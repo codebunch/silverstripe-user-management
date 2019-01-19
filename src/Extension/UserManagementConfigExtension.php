@@ -32,10 +32,11 @@ class UserManagementConfigExtension extends DataExtension
         'CustomerGroup' => Group::class
     ];
 
+    // To Do
     /**
      * Set default values to siteconfig
      */
-    public function populateDefaults()
+    /*public function populateDefaults()
     {
         parent::populateDefaults();
         if (!$this->CustomerGroupID) {
@@ -54,7 +55,7 @@ class UserManagementConfigExtension extends DataExtension
             $this->LossPasswordUrlID = SiteTree::get()
             ->filter('ClassName', 'UserManagement\Page\LostPasswordPage')->first()->ID;
         }
-    }
+    }*/
     
     public function updateCMSFields(FieldList $fields)
     {
