@@ -39,7 +39,6 @@ before_script:
   - echo -e "[server]\nmax_allowed_packet=64M" | sudo tee -a /etc/mysql/conf.d/dms.cnf
   - sudo service mysql restart
   - composer validate
-  - composer global require squizlabs/php_codesniffer:^3 --prefer-dist --no-interaction --no-progress --no-suggest -o
   - composer self-update || true
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
   - composer create-project silverstripe/installer ~/build/ss 4.2.1
@@ -54,6 +53,7 @@ before_script:
   - echo "$line6" >>.env
   - echo "$line7" >>.env
   - composer require beanjuice/silverstripe-user-management dev-master
+  - composer require --dev squizlabs/php_codesniffer 3.0
   - php vendor/silverstripe/framework/cli-script.php dev/build
 
 script:
