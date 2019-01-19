@@ -61,4 +61,5 @@ script:
 
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
+  - find ~/build/ss -iname "coverage.xml" 
   - cat coverage.xml
