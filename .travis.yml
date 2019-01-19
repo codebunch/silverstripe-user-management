@@ -55,11 +55,9 @@ before_script:
   - php vendor/silverstripe/framework/cli-script.php dev/build
 
 script:
-  - vendor/bin/phpunit vendor/beanjuice/silverstripe-user-management/tests/Pages/*
   - cd vendor/beanjuice/silverstripe-user-management
+  - ../../bin/phpunit tests/Pages/*
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr ../../bin/phpunit --coverage-clover=coverage.xml --exclude-group exclude-from-travis; fi
 
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
-  - find ~/build/ss -iname "coverage.xml" 
-  - cat coverage.xml
