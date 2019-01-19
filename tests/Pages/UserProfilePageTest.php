@@ -20,6 +20,8 @@ class UserProfilePageTest extends FunctionalTest
      */
     public function testfindlink()
     {
+        $member = Member::get()->filter("Email", "hello3@cms.com")->first();
+        Injector::inst()->get(IdentityStore::class)->logIn($member);
         $page = $this->get("my-profile/");  // attempt to access the profile Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
