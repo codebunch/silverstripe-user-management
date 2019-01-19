@@ -2,16 +2,14 @@
 
 namespace UserManagement\Tests;
 
-use UserManagement\Page\LostPasswordPage;
-use SilverStripe\Dev\SapphireTest;
-use SilverStripe\Control\Director;
+use SilverStripe\Dev\FunctionalTest;
 
 /**
  * Class LostPasswordPageTest
  *
  * @package user-management
  */
-class LostPasswordPageTest extends SapphireTest
+class LostPasswordPageTest extends FunctionalTest
 {
     
     /**

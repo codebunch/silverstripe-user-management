@@ -2,14 +2,14 @@
 
 namespace UserManagement\Tests;
 
-use SilverStripe\Dev\SapphireTest;
+use SilverStripe\Dev\FunctionalTest;
 
 /**
  * Class UserRegistrationPageTest
  *
  * @package user-management
  */
-class UserRegistrationPageTest extends SapphireTest
+class UserRegistrationPageTest extends FunctionalTest
 {
     
     /**

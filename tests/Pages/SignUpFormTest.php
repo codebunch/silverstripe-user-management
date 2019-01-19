@@ -4,7 +4,6 @@ namespace UserManagement\Tests;
 
 use UserManagement\Forms\SignUpForm;
 use SilverStripe\Dev\FunctionalTest;
-use SilverStripe\Control\Director;
 use SilverStripe\Security\Member;
 
 /**
