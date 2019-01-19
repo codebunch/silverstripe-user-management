@@ -49,7 +49,7 @@ before_script:
   - echo "$line5" >>.env
   - echo "$line6" >>.env
   - echo "$line7" >>.env
-  - composer require beanjuice/silverstripe-user-management
+  - composer require beanjuice/silverstripe-user-management dev-master
   - php vendor/silverstripe/framework/cli-script.php dev/build
 
 script:
