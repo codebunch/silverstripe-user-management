@@ -32,6 +32,8 @@ matrix:
 fast_finish: true
 
 before_script:
+  - phpenv rehash
+  - phpenv config-rm xdebug.ini
   - echo -e "[server]\nmax_allowed_packet=64M" | sudo tee -a /etc/mysql/conf.d/dms.cnf
   - sudo service mysql restart
   - composer validate
