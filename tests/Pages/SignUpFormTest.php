@@ -21,7 +21,7 @@ class SignUpFormTest extends FunctionalTest
     public function testMyForm()
     {
 
-        $this->get("user-registration-1/");
+        $this->get("user-registration/");
 
         $this->submitForm("SignUpForm", "action_doSubmit", array("FirstName" => "John",
          "Password[_Password]" => "admin",
