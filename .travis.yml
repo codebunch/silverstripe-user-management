@@ -54,6 +54,7 @@ before_script:
 
 script:
   - vendor/bin/phpunit "$COVERAGE" vendor/beanjuice/silverstripe-user-management/tests/Pages/*
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
   
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f coverage.xml;
+  - bash <(curl -s https://codecov.io/bash)
