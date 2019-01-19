@@ -27,7 +27,6 @@ before_script:
 
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
-  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs vendor/beanjuice/silverstripe-user-management/src/* vendor/beanjuice/silverstripe-user-management/tests/Pages/*; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
   
 after_success:
