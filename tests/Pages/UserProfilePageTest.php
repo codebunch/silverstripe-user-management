@@ -47,7 +47,7 @@ class UserProfilePageTest extends FunctionalTest
 
         $this->get("my-profile/");
      
-        $this->submitForm("ProfileForm", "action_doSubmit", array("FirstName" => "John"));
+        $this->submitForm("ProfileForm", "doSubmitProfile", array("FirstName" => "John"));
 
         $this->assertEquals(1, Member::get()->filter("Email", "hello3@cms.com")->count()>0 ? 1 : 0,
          'testMyForm() returns the email from profile page.');
