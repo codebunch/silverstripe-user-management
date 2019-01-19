@@ -28,6 +28,8 @@ matrix:
       env: DB=MYSQL CORE_RELEASE=4.2.1
     - php: 7.1
       env: DB=MYSQL CORE_RELEASE=4.2.1 PHPUNIT_COVERAGE_TEST=1
+    - php: 7.1
+      env: DB=MYSQL CORE_RELEASE=4.2.1 PHPCS_TEST=1
 
 fast_finish: true
 
@@ -58,6 +60,7 @@ script:
   - cd vendor/beanjuice/silverstripe-user-management
   - ../../bin/phpunit tests/Pages/*
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr ../../bin/phpunit --coverage-clover=coverage.xml --exclude-group exclude-from-travis; fi
+  - if [[ $PHPCS_TEST ]]; then ../../bin/phpcs src/ tests/; fi
 
 after_success:
   - find . -iname "coverage.xml" && if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
