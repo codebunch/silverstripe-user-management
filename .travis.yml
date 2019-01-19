@@ -27,7 +27,7 @@ matrix:
     - php: 7.1
       env: DB=MYSQL CORE_RELEASE=4.2.1
     - php: 7.1
-      env: DB=MYSQL CORE_RELEASE=4.2.1 COVERAGE="--coverage-clover=coverage.xml"
+      env: DB=MYSQL CORE_RELEASE=4.2.1 PHPUNIT_COVERAGE_TEST=1
 
 fast_finish: true
 
@@ -54,6 +54,7 @@ before_script:
 
 script:
   - vendor/bin/phpunit vendor/beanjuice/silverstripe-user-management/tests/Pages/*
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
   
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f coverage.xml
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
