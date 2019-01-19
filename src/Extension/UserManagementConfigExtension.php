@@ -164,7 +164,7 @@ class UserManagementConfigExtension extends DataExtension
     public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID) {
-            return Group::get()->filter('Name', 'general')->first()->ID;
+            return Group::get()->filter('Title', 'general')->first()->ID;
         } else {
             return $this->owner->CustomerGroup()->ID;
         }
