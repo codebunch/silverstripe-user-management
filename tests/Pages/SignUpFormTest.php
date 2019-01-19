@@ -27,7 +27,7 @@ class SignUpFormTest extends FunctionalTest
          "Password[_Password]" => "admin",
             "Password[_ConfirmPassword]" => "admin", "Email" => "hello3@cms.com"));
 
-        $this->assertEquals(1, Member::get()->filter("Email", "hello5@cms.com")->count()>0 ? 1 : 0,
+        $this->assertEquals(1, Member::get()->filter("Email", "hello3@cms.com")->count()>0 ? 1 : 0,
          'testMyForm() returns the user email');
     }
 }
