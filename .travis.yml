@@ -2,7 +2,7 @@ language: php
 
 env:
   global:
-    - COMPOSER_ROOT_VERSION=4.0.x-dev
+    - COMPOSER_ROOT_VERSION=4.2.1
 
 matrix:
   include:
@@ -21,7 +21,7 @@ before_script:
 
   # Install composer dependencies
   - composer install --prefer-dist
-  - composer require --prefer-dist --no-update silverstripe/recipe-cms 1.0.x-dev
+  - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
   - composer update
 
 script:
