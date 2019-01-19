@@ -56,7 +56,8 @@ before_script:
 
 script:
   - vendor/bin/phpunit vendor/beanjuice/silverstripe-user-management/tests/Pages/*
-  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=clover.xml; fi
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml --exclude-group exclude-from-travis; fi
+
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f clover.xml; fi
   - cat phpunit.xml.dist
