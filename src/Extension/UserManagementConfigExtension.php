@@ -149,7 +149,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLostPasswordUrlID()
     {
-        if (!$this->owner->LostPasswordUrl()->ID) {
+        if (!$this->owner->LostPasswordUrl()) {
             return SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage')->first()->ID;
         } else {
             return $this->owner->LostPasswordUrl()->ID;
@@ -164,7 +164,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getCustomerGroupID()
     {
-        if (!$this->owner->CustomerGroup()->ID) {
+        if (!$this->owner->CustomerGroup()) {
             return Group::get()->filter('Title', 'general')->first()->ID;
         } else {
             return $this->owner->CustomerGroup()->ID;

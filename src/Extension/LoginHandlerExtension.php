@@ -16,8 +16,9 @@ class LoginHandlerExtension extends LoginHandler
 
     protected function redirectAfterSuccessfulLogin()
     {
-        if (Security::getCurrentUser()->inGroup('3')) {
-            $config = SiteConfig::current_site_config();
+        $config = SiteConfig::current_site_config();
+        $groupID = $config->getCustomerGroupID();
+        if (Security::getCurrentUser()->inGroup($groupID)) {
             if ($config->LoginCallBackUrl()->URLSegment) {
                 return $this->redirect($config->LoginCallBackUrl()->URLSegment);
             }

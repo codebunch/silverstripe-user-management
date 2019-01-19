@@ -19,18 +19,8 @@ class LostPasswordPageTest extends SapphireTest
      */
     public function testfindlink()
     {
-        $pagedetails = [
-        "lostpasswordlink" => "forgotten-password/"
-        ];
-        
-        $link = LostPasswordPage::find_link();
-        
-        foreach ($pagedetails as $key => $value) {
-            $this->assertEquals(
-            Director::baseURL() . $value,
-            $link,
-            'testfindlink() returns the correct link to lost password.'
-            );
-        }
+       
+        $page = $this->get("forgotten-password/");  // attempt to access the Lost Forgot Page
+        $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
 }

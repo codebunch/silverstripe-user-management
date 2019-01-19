@@ -2,9 +2,7 @@
 
 namespace UserManagement\Tests;
 
-use UserManagement\Page\UserProfilePage;
 use SilverStripe\Dev\FunctionalTest;
-use SilverStripe\Control\Director;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\IdentityStore;
 use SilverStripe\Core\Injector\Injector;
@@ -22,19 +20,8 @@ class UserProfilePageTest extends FunctionalTest
      */
     public function testfindlink()
     {
-        $pagedetails = [
-        "userprofilelink" => "my-profile/"
-        ];
-        
-        $link = UserProfilePage::find_link();
-        
-        foreach ($pagedetails as $key => $value) {
-            $this->assertEquals(
-            Director::baseURL() . $value,
-            $link,
-            'testfindlink() returns the correct link to user profile page.'
-            );
-        }
+        $page = $this->get("my-profile/");  // attempt to access the profile Page
+        $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
 
     /**

@@ -2,9 +2,7 @@
 
 namespace UserManagement\Tests;
 
-use UserManagement\Page\UserRegistrationPage;
 use SilverStripe\Dev\SapphireTest;
-use SilverStripe\Control\Director;
 
 /**
  * Class UserRegistrationPageTest
@@ -19,18 +17,7 @@ class UserRegistrationPageTest extends SapphireTest
      */
     public function testfindlink()
     {
-        $pagedetails = [
-        "userregistrationlink" => "user-registration/"
-        ];
-        
-        $link = UserRegistrationPage::find_link();
-        
-        foreach ($pagedetails as $key => $value) {
-            $this->assertEquals(
-            Director::baseURL() . $value,
-            $link,
-            'testfindlink() returns the correct link to user registration page.'
-            );
-        }
+        $page = $this->get("user-registration/");  // attempt to access the signup Page
+        $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
 }

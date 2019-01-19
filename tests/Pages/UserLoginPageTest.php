@@ -2,9 +2,7 @@
 
 namespace UserManagement\Tests;
 
-use UserManagement\Page\UserLoginPage;
 use SilverStripe\Dev\SapphireTest;
-use SilverStripe\Control\Director;
 
 /**
  * Class UserLoginPageTest
@@ -19,18 +17,7 @@ class UserLoginPageTest extends SapphireTest
      */
     public function testfindlink()
     {
-        $pagedetails = [
-        "URLSegment1" => "user-login-1/"       
-        ];
-        
-        $link = UserLoginPage::find_link();
-        
-        foreach ($pagedetails as $key => $value) {
-            $this->assertEquals(
-            Director::baseURL() . $value,
-            $link,
-            'testfindlink() returns the correct link to login page.'
-            );
-        }
+        $page = $this->get("user-login/");  // attempt to access the user login Page
+        $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
 }
