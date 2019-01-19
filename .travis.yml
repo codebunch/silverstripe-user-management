@@ -56,4 +56,4 @@ script:
   - vendor/bin/phpunit "$COVERAGE" vendor/beanjuice/silverstripe-user-management/tests/Pages/*
   
 after_success:
-  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
+  - bash <(curl -s https://codecov.io/bash) -f coverage.xml;
