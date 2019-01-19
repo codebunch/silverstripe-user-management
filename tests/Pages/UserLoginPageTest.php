@@ -20,8 +20,7 @@ class UserLoginPageTest extends SapphireTest
     public function testfindlink()
     {
         $pagedetails = [
-        "URLSegment1" => "user-login-1/",
-        "URLSegment2" => "user-login-2/"
+        "URLSegment1" => "user-login/"       
         ];
         
         $link = UserLoginPage::find_link();
