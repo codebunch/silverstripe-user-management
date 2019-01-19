@@ -21,6 +21,7 @@ before_script:
 
   # Install composer dependencies
   - composer install --prefer-dist
+  - composer require --prefer-dist --dev squizlabs/php_codesniffer ^3.0
   - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
   - composer update
 
