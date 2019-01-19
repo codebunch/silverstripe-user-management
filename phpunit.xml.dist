@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/silverstripe/framework/tests/bootstrap.php" colors="true">
     <testsuite name="Default">
-        <directory>tests/</directory>
+        <directory>tests/Pages/</directory>
     </testsuite>
         <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">vendor/beanjuice/silverstripe-user-management/src</directory>
+            <directory suffix=".php">src/</directory>
             <exclude>
-                <directory suffix=".php">vendor/beanjuice/silverstripe-user-management/tests</directory>
+                <directory suffix=".php">tests/Pages/</directory>
             </exclude>
         </whitelist>
     </filter>
