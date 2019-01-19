@@ -20,7 +20,7 @@ class UserRegistrationPageTest extends SapphireTest
     public function testfindlink()
     {
         $pagedetails = [
-        "userregistrationlink" => "user-registration-1/"
+        "userregistrationlink" => "user-registration/"
         ];
         
         $link = UserRegistrationPage::find_link();
