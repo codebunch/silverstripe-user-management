@@ -170,6 +170,4 @@ class UserManagementConfigExtension extends DataExtension
             return $this->owner->CustomerGroup()->ID;
         }
     }
-    
-    
 }

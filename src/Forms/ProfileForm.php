@@ -8,7 +8,6 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\Security;
 
-
 /**
  * Class ProfileForm
  *
@@ -54,10 +53,12 @@ class ProfileForm extends SignUpForm
             try {
                 $form->saveInto($member);
                 $member->write();
-                $msg = $this->getCustomMessage('ProfileUpdateSuccess')!="" ? $this->getCustomMessage('ProfileUpdateSuccess') : "Profile updated!";
+                $msg = $this->getCustomMessage('ProfileUpdateSuccess')!=""
+                    ? $this->getCustomMessage('ProfileUpdateSuccess') : "Profile updated!";
                 $form->sessionMessage($msg, 'good');
             } catch (Exception $e) {
-                $msg = $this->getCustomMessage('ProfileUpdatError')!=""  ? $this->getCustomMessage('ProfileUpdatError') : "Technical issue, Profile not updated!";
+                $msg = $this->getCustomMessage('ProfileUpdatError')!=""
+                    ? $this->getCustomMessage('ProfileUpdatError') : "Technical issue, Profile not updated!";
                 $form->sessionMessage($msg, 'bad');
             }
         } else {
@@ -69,7 +70,7 @@ class ProfileForm extends SignUpForm
     
     public function getCustomMessage($field)
     {
-        $config = SiteConfig::current_site_config();      
+        $config = SiteConfig::current_site_config();
         return $config->$field;
     }
 }
