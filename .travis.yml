@@ -22,13 +22,10 @@ before_script:
   # Install composer dependencies
   - composer install --prefer-dist
   - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
-  - composer require --dev squizlabs/php_codesniffer 3.0
   - composer update
 
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
-  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs --standard=vendor/beanjuice/silverstripe-user-management/phpcs.xml.dist src/ tests/Pages/; fi
-
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
