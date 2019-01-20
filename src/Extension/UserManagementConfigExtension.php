@@ -88,7 +88,7 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TreeDropdownField::create(
                 'LostPasswordUrlID',
-                _t(__CLASS__ . '.LostPasswordUrl', 'Lost Password Back Url'),
+                _t(__CLASS__ . '.LostPasswordUrl', 'Lost Password Url'),
                 SiteTree::class
             )
         );
