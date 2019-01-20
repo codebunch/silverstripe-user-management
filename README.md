@@ -42,4 +42,7 @@ composer require beanjuice/silverstripe-user-management dev-master
 
 ## Screenprints
 
-### To Do
+### Site Configuration
+
+![Screenprints](https://raw.githubusercontent.com/beanjuice/silverstripe-user-management/master/docs/en/images/siteconfig-user-management.png)
+
