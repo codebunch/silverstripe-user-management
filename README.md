@@ -33,7 +33,7 @@ composer require beanjuice/silverstripe-user-management dev-master
 
 ## Documentation
 
-# To Do
+### To Do
 * Customer group creation
 * Login customization
 * Signup extension
@@ -42,4 +42,4 @@ composer require beanjuice/silverstripe-user-management dev-master
 
 ## Screenprints
 
-# To Do
+### To Do
