@@ -25,7 +25,7 @@ class ViewableuserInfoExtension extends Extension implements TemplateGlobalProvi
     {
         if (Security::getCurrentUser()) {
             $html = DBHTMLText::create();
-            $html->setValue( "<a href='".Security::logout_url()."&BackURL=/'>Logout</a>");
+            $html->setValue("<a href='" . Security::logout_url() . "&BackURL=/'>Logout</a>");
             return $html;
         }
         return false;

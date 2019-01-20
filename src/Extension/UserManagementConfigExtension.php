@@ -62,54 +62,57 @@ class UserManagementConfigExtension extends DataExtension
         $fields->insertBefore('Access', $usertab = Tab::create('UserManagement', 'User Management'));
         $fields->addFieldToTab(
             'Root.UserManagement',
-                TreeDropdownField::create(
-                    'CustomerGroupID',
-                        _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
-                        Group::class
-             )
+            TreeDropdownField::create(
+                'CustomerGroupID',
+                _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
+                Group::class
+            )
         );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    TreeDropdownField::create(
-                        'LoginUrlID',
-                        _t(__CLASS__ . '.LoginUrl', 'Login Url'),
-                        SiteTree::class
-                    )
-                );
+            TreeDropdownField::create(
+                'LoginUrlID',
+                _t(__CLASS__ . '.LoginUrl', 'Login Url'),
+                SiteTree::class
+            )
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    TreeDropdownField::create(
-                        'LoginCallBackUrlID',
-                        _t(__CLASS__ . '.LoginCallBackUrl', 'Login Call Back Url'),
-                        SiteTree::class
-                    )
-                );
+            TreeDropdownField::create(
+                'LoginCallBackUrlID',
+                _t(__CLASS__ . '.LoginCallBackUrl', 'Login Call Back Url'),
+                SiteTree::class
+            )
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    TreeDropdownField::create(
-                        'LostPasswordUrlID',
-                        _t(__CLASS__ . '.LostPasswordUrl', 'Lost Password Back Url'),
-                        SiteTree::class
-                    )
-                );
+            TreeDropdownField::create(
+                'LostPasswordUrlID',
+                _t(__CLASS__ . '.LostPasswordUrl', 'Lost Password Back Url'),
+                SiteTree::class
+            )
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    TextareaField::create(
-                        'ProfileUpdateSuccess',
-                        _t(__CLASS__ . '.ProfileUpdateSuccess', 'Profile update Success Message'))
-                );
+            TextareaField::create(
+                'ProfileUpdateSuccess',
+                _t(__CLASS__ . '.ProfileUpdateSuccess', 'Profile update Success Message')
+            )
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    TextareaField::create(
-                        'ProfileUpdatError',
-                        _t(__CLASS__ . '.ProfileUpdatError', 'Profile update Error Message'))
-                );
+            TextareaField::create(
+                'ProfileUpdatError',
+                _t(__CLASS__ . '.ProfileUpdatError', 'Profile update Error Message')
+            )
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
-                    CheckboxField::create(
-                        'EnableSpamProtection',
-                        _t(__CLASS__ . '.EnableSpamProtection', 'Enable Spam Protection'))
-                );
+            CheckboxField::create(
+                'EnableSpamProtection',
+                _t(__CLASS__ . '.EnableSpamProtection', 'Enable Spam Protection')
+            )
+        );
     }
     
     /**
