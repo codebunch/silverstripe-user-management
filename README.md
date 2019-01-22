@@ -1,10 +1,10 @@
 # SilverStripe 4 User Management module
 
-[![Build Status](https://travis-ci.org/beanjuice/silverstripe-user-management.svg?branch=master)](https://travis-ci.org/beanjuice/silverstripe-user-management)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/beanjuice/silverstripe-user-management/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/beanjuice/silverstripe-user-management/?branch=master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/beanjuice/silverstripe-user-management/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-[![codecov](https://codecov.io/gh/beanjuice/silverstripe-user-management/branch/master/graph/badge.svg)](https://codecov.io/gh/beanjuice/silverstripe-user-management)
-[![](https://img.shields.io/github/license/beanjuice/silverstripe-user-management.svg)](https://github.com/beanjuice/silverstripe-user-management/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/codebunch/silverstripe-user-management.svg?branch=master)](https://travis-ci.org/codebunch/silverstripe-user-management)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![codecov](https://codecov.io/gh/codebunch/silverstripe-user-management/branch/master/graph/badge.svg)](https://codecov.io/gh/codebunch/silverstripe-user-management)
+[![](https://img.shields.io/github/license/beanjuice/silverstripe-user-management.svg)](https://github.com/codebunch/silverstripe-user-management/blob/master/LICENSE)
 
     
 ## Introduction
@@ -28,7 +28,7 @@ Features include
 ## Installation
 
 ```
-composer require beanjuice/silverstripe-user-management dev-master
+composer require codebunch/silverstripe-user-management dev-master
 ```
 
 ## Documentation
@@ -44,5 +44,5 @@ composer require beanjuice/silverstripe-user-management dev-master
 
 ### Site Configuration
 
-![Screenprints](https://raw.githubusercontent.com/beanjuice/silverstripe-user-management/master/docs/en/images/siteconfig-user-management.png)
+![Screenprints](https://raw.githubusercontent.com/codebunch/silverstripe-user-management/master/docs/en/images/siteconfig-user-management.png)
 
