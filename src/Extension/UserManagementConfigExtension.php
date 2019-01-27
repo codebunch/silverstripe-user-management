@@ -10,6 +10,8 @@ use SilverStripe\Security\Group;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\Security\Member;
 
 /**
  * Class UserManagementConfigExtension
@@ -21,7 +23,8 @@ class UserManagementConfigExtension extends DataExtension
     private static $db = [
         "ProfileUpdateSuccess" => 'Text',
         "ProfileUpdatError" => 'Text',
-        "EnableSpamProtection" => 'Boolean'
+        "EnableSpamProtection" => 'Boolean',
+        "ExportFields" => 'Text'
 
     ];
     
@@ -31,31 +34,6 @@ class UserManagementConfigExtension extends DataExtension
         'LostPasswordUrl' => SiteTree::class,
         'CustomerGroup' => Group::class
     ];
-
-    // To Do
-    /**
-     * Set default values to siteconfig
-     */
-    /*public function populateDefaults()
-    {
-        parent::populateDefaults();
-        if (!$this->CustomerGroupID) {
-            $this->CustomerGroupID = Group::get()->filter('Title', 'general')->first()->ID;
-        }
-        if (!$this->LoginCallBackUrlID) {
-            $this->LoginCallBackUrlID = SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\UserProfilePage')->first()->ID;
-        }
-
-        if (!$this->LoginUrlID) {
-            $this->LoginUrlID = SiteTree::get()->filter('ClassName', 'UserManagement\Page\UserLoginPage')->first()->ID;
-        }
-
-        if (!$this->LossPasswordUrlID) {
-            $this->LossPasswordUrlID = SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\LostPasswordPage')->first()->ID;
-        }
-    }*/
     
     public function updateCMSFields(FieldList $fields)
     {
@@ -111,6 +89,16 @@ class UserManagementConfigExtension extends DataExtension
             CheckboxField::create(
                 'EnableSpamProtection',
                 _t(__CLASS__ . '.EnableSpamProtection', 'Enable Spam Protection')
+            )
+        );
+        
+        $fields->addFieldToTab(
+            'Root.UserManagement',
+            ListboxField::create(
+                'ExportFields',
+                'Select Data fields for the report',
+                $this->getExportFieldNames(),
+                json_decode($this->owner->ExportFields)
             )
         );
     }
@@ -172,5 +160,12 @@ class UserManagementConfigExtension extends DataExtension
         } else {
             return $this->owner->CustomerGroup()->ID;
         }
+    }
+
+    public function getExportFieldNames()
+    {
+        $memberFields = Member::create()->getFrontEndFields()->dataFieldNames();
+        $memberFields = array_diff($memberFields, ["FirstName", "Surname", "Email", "TempIDHash", "TempIDExpired", "AutoLoginHash", "AutoLoginExpired","PasswordEncryption","Salt","Locale", "FailedLoginCount", "LockedOutUntil", "Password", "PasswordExpiry"]);
+        return array_combine($memberFields, $memberFields);
     }
 }

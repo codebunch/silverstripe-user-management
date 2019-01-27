@@ -4,12 +4,6 @@ namespace UserManagement\Page;
 use Page;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DB;
-use SilverStripe\Forms\Form;
-use SilverStripe\Security\Member;
-use SilverStripe\Security\Security;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Security\MemberAuthenticator\MemberAuthenticator;
-use SilverStripe\Core\Injector\Injector;
 
 /**
  * Class UserLoginPage

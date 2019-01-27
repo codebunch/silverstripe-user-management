@@ -26,12 +26,13 @@ use Psr\Log\LoggerInterface;
 class SignUpForm extends Form
 {
 
+    protected $siteConfig;
     /**
      * Constructor
      */
     public function __construct($controller, $name)
     {
-
+        $this->setsiteConfig();
         $this->setAttribute('id', 'SignUpForm');
         parent::__construct($controller, $name, $this->getFormFields($controller), $this->getFormActions());
     }
@@ -49,15 +50,13 @@ class SignUpForm extends Form
                   $signUpPersonal->DOB = date('Y-m-d', strtotime($data['DOB']));
             }
             $signUpPersonal->write();
-
-            $config = SiteConfig::current_site_config();
             $Member = Member::get()->byId($signUpPersonal->ID);
             $assignGroup = $signUpPersonal->Groups();
-            $assignGroup->add($config->CustomerGroup());
+            $assignGroup->add($this->siteConfig->CustomerGroup());
             Injector::inst()->get(IdentityStore::class)->logIn($Member);
             //TO DO
             //$this->sessionMessage('Profile Created!', 'good');
-            return $this->controller->redirect('my-profile');
+            return $this->controller->redirect($this->siteConfig->LoginCallBackUrl()->URLSegment); #TODO
         } catch (Exception $e) {
             $this->logger->log('Error occured in signup');
         }
@@ -95,5 +94,11 @@ class SignUpForm extends Form
         return FieldList::create(
             FormAction::create("doSubmit", "Submit")
         );
+    }
+
+
+    protected function setsiteConfig()
+    {
+        $this->siteConfig = SiteConfig::current_site_config();
     }
 }

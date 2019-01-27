@@ -15,11 +15,13 @@ use SilverStripe\Security\Security;
  */
 class ProfileForm extends SignUpForm
 {
-
+    
+    protected $siteConfig;
 
     public function __construct($controller, $name)
     {
         $this->setAttribute('id', 'ProfileForm');
+        $this->setsiteConfig();
         parent::__construct($controller, $name, $this->getFormFields($controller), $this->getFormActions());
     }
     protected function getFormFields($controller = null)
@@ -62,7 +64,7 @@ class ProfileForm extends SignUpForm
                 $form->sessionMessage($msg, 'bad');
             }
         } else {
-            return $this->controller->redirect('user-login-1');
+            return $this->controller->redirect($this->siteConfig->LoginUrl()->URLSegment);
         }
         return $this->controller->redirectBack();
     }
@@ -70,7 +72,11 @@ class ProfileForm extends SignUpForm
     
     public function getCustomMessage($field)
     {
-        $config = SiteConfig::current_site_config();
-        return $config->$field;
+        return $this->siteConfig->$field;
+    }
+   
+    protected function setsiteConfig()
+    {
+        $this->siteConfig = SiteConfig::current_site_config();
     }
 }
