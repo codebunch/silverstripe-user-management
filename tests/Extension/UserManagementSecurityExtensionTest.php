@@ -3,7 +3,7 @@
 namespace UserManagement\Tests;
 
 use SilverStripe\Dev\FunctionalTest;
-use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Security\Security;
 
 /**
  * Class UserManagementSecurityExtensionTest
