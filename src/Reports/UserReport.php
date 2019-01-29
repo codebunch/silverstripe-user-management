@@ -44,23 +44,12 @@ class UserReport extends Report
         $start = $fields->fieldByName('StartPeriod')->dataValue();
         $end = $fields->fieldByName('EndPeriod')->dataValue();
         $firstName = $fields->fieldByName('FirstName')->dataValue();
-        $filter = false;
         if ($end) {
             $end = date('Y-m-d', strtotime($end) + 86400);
         }
-
-        if ($start && $end) {
-            $filter = "Member.Created BETWEEN '$start' AND '$end'";
-        } elseif ($start) {
-            $filter = "Member.Created > '$start'";
-        } elseif ($end) {
-            $filter = "Member.Created <= '$end'";
-        }
-        if ($firstName) {
-            $filter = ($filter)? $filter . " AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
-        }
         $config = SiteConfig::current_site_config();
         $member = Member::get()->filter('Groups.Title', $config->CustomerGroup()->Title);
+        $filter = $this->applyFilter($start, $end, $firstName);
         if ($filter) {
             return $member->where($filter);
         }
@@ -97,5 +86,22 @@ class UserReport extends Report
         );
         
         return $fields;
+    }
+
+    public function applyFilter($start, $end, $firstName)
+    {
+        $filter = false;
+        if ($start && $end) {
+            $filter = "Member.Created BETWEEN '$start' AND '$end'";
+        } elseif ($start) {
+            $filter = "Member.Created > '$start'";
+        } elseif ($end) {
+            $filter = "Member.Created <= '$end'";
+        }
+        if ($firstName) {
+            $filter = ($filter)? $filter . " AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
+        }
+
+        return $filter;
     }
 }
