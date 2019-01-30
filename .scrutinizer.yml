@@ -1,15 +1,36 @@
 inherit: true
 
+tools:
+    external_code_coverage:
+      timeout: 600
+    php_code_sniffer:
+      config:
+        standard: PSR2
+    php_cs_fixer:
+      extensions:
+        # Default:
+        - php
+      fixers: []
+      enabled: false
+      filter:
+            paths: [tests/*,src/*]
+            excluded_paths: []
+coding_style:
+  php:
+    indentation:
+      general:
+        use_tabs: false
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
+
 build:
   nodes:
     analysis:
       tests:
         override: [php-scrutinizer-run]
 
-checks:
-  php:
-    code_rating: true
-    duplication: true
-
 filter:
-  paths: [src/*, tests/*]
+    paths: [tests/*,src/*]
