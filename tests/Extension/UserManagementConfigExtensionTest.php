@@ -19,7 +19,7 @@ class UserManagementConfigExtensionTest extends FunctionalTest
     {
         parent::setUp();
 
-        $this->siteconfig = SiteConfig::current_site_config();
+        $this->siteconfig = SiteConfig::create();
     }
 
     /**
