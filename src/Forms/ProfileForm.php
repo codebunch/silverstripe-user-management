@@ -58,7 +58,7 @@ class ProfileForm extends SignUpForm
                 $msg = $this->getCustomMessage('ProfileUpdateSuccess')!=""
                     ? $this->getCustomMessage('ProfileUpdateSuccess') : "Profile updated!";
                 $form->sessionMessage($msg, 'good');
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $msg = $this->getCustomMessage('ProfileUpdatError')!=""
                     ? $this->getCustomMessage('ProfileUpdatError') : "Technical issue, Profile not updated!";
                 $form->sessionMessage($msg, 'bad');

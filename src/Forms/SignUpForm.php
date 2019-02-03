@@ -57,7 +57,7 @@ class SignUpForm extends Form
             //TO DO
             //$this->sessionMessage('Profile Created!', 'good');
             return $this->controller->redirect($this->siteConfig->LoginCallBackUrl()->URLSegment); #TODO
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->logger->log('Error occured in signup');
         }
     }
