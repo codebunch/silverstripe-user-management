@@ -113,10 +113,11 @@ class UserManagementConfigExtension extends DataExtension
         if (!$this->owner->LoginUrl()->ID && $this->getDBstatus()) {
             $LoginUrl = SiteTree::get()
                 ->filter('ClassName', 'UserManagement\Page\UserLoginPage');
-            if($LoginUrl->count() > 0)
+            if ($LoginUrl->count() > 0) {
                 return $LoginUrl->first()->ID;
-            else
+            } else {
                 return;
+            }
         } else {
             return $this->owner->LoginUrl()->ID;
         }
@@ -132,10 +133,11 @@ class UserManagementConfigExtension extends DataExtension
         if (!$this->owner->LoginCallBackUrl()->ID && $this->getDBstatus()) {
             $LoginCallBackUrl = SiteTree::get()
             ->filter('ClassName', 'UserManagement\Page\UserProfilePage');
-            if($LoginCallBackUrl->count() > 0)
+            if ($LoginCallBackUrl->count() > 0) {
                 return $LoginCallBackUrl->first()->ID;
-            else
+            } else {
                 return;
+            }
         } else {
             return $this->owner->LoginCallBackUrl()->ID;
         }
@@ -150,10 +152,11 @@ class UserManagementConfigExtension extends DataExtension
     {
         if (!$this->owner->LostPasswordUrl()->ID && $this->getDBstatus()) {
             $LostPasswordUrl = SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage');
-            if($LostPasswordUrl->count() > 0)
+            if ($LostPasswordUrl->count() > 0) {
                 return $LostPasswordUrl->first()->ID;
-            else
+            } else {
                 return;
+            }
         } else {
             return $this->owner->LostPasswordUrl()->ID;
         }
@@ -169,10 +172,11 @@ class UserManagementConfigExtension extends DataExtension
     {
         if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
             $group = Group::get()->filter('Title', 'General');
-            if($group->count() > 0)
+            if ($group->count() > 0) {
                 return $group->first()->ID;
-            else
+            } else {
                 return;
+            }
         } else {
             return $this->owner->CustomerGroup()->ID;
         }
@@ -185,8 +189,9 @@ class UserManagementConfigExtension extends DataExtension
         return array_combine($memberFields, $memberFields);
     }
 
-    public function getDBstatus(){
-        if(\SilverStripe\ORM\DB::is_active() && count(\SilverStripe\ORM\DB::table_list()) > 0){
+    public function getDBstatus()
+    {
+        if (\SilverStripe\ORM\DB::is_active() && count(\SilverStripe\ORM\DB::table_list()) > 0) {
             return true;
         }
         return false;
