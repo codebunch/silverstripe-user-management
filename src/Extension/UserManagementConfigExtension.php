@@ -110,7 +110,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLoginUrlID()
     {
-        if (!$this->owner->LoginUrl()->ID) {
+        if (!$this->owner->LoginUrl()->ID && $this->getDBstatus()) {
             $LoginUrl = SiteTree::get()
                 ->filter('ClassName', 'UserManagement\Page\UserLoginPage');
             if($LoginUrl->count() > 0)
@@ -129,7 +129,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLoginCallBackUrlID()
     {
-        if (!$this->owner->LoginCallBackUrl()->ID) {
+        if (!$this->owner->LoginCallBackUrl()->ID && $this->getDBstatus()) {
             $LoginCallBackUrl = SiteTree::get()
             ->filter('ClassName', 'UserManagement\Page\UserProfilePage');
             if($LoginCallBackUrl->count() > 0)
@@ -148,9 +148,9 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLostPasswordUrlID()
     {
-        if (!$this->owner->LostPasswordUrl()->ID) {
+        if (!$this->owner->LostPasswordUrl()->ID && $this->getDBstatus()) {
             $LostPasswordUrl = SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage');
-            if($LostPasswordUrl->count()>0)
+            if($LostPasswordUrl->count() > 0)
                 return $LostPasswordUrl->first()->ID;
             else
                 return;
@@ -167,10 +167,10 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getCustomerGroupID()
     {
-        if (!$this->owner->CustomerGroup()->ID) {
-            $group = Group::get()->filter('Title', 'general');
+        if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
+            $group = Group::get()->filter('Title', 'General');
             if($group->count() > 0)
-                return Group::get()->filter('Title', 'general')->first()->ID;
+                return $group->first()->ID;
             else
                 return;
         } else {
@@ -183,5 +183,12 @@ class UserManagementConfigExtension extends DataExtension
         $memberFields = Member::create()->getFrontEndFields()->dataFieldNames();
         $memberFields = array_diff($memberFields, ["FirstName", "Surname", "Email", "TempIDHash", "TempIDExpired", "AutoLoginHash", "AutoLoginExpired","PasswordEncryption","Salt","Locale", "FailedLoginCount", "LockedOutUntil", "Password", "PasswordExpiry"]);
         return array_combine($memberFields, $memberFields);
+    }
+
+    public function getDBstatus(){
+        if(\SilverStripe\ORM\DB::is_active() && count(\SilverStripe\ORM\DB::table_list()) > 0){
+            return true;
+        }
+        return false;
     }
 }
