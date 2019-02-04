@@ -19,10 +19,6 @@ class LoginHandlerExtensionTest extends FunctionalTest
    **/
     public function testRedirect()
     {
-        $member = Member::create();
-        $member->FirstName = "John";
-        $member->Email = "hellotest@cms.com";
-        $member->Password = "test";
-        $this->logInAs($member);
+       
     }
 }
