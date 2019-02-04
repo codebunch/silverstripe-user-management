@@ -19,6 +19,5 @@ class LoginHandlerExtensionTest extends FunctionalTest
    **/
     public function testRedirect()
     {
-       
     }
 }
