@@ -58,9 +58,9 @@ class UserRegistrationPage extends Page
              */
             $page = self::create()->update(
                 [
-                'Title' => 'UserRegistration',
-                'URLSegment' => UserRegistrationPageController::config()->url_segment,
-                'ShowInMenus' => 0,
+                    'Title' => 'UserRegistration',
+                    'URLSegment' => UserRegistrationPageController::config()->url_segment,
+                    'ShowInMenus' => 0,
                 ]
             );
             $page->write();

@@ -72,4 +72,14 @@ class UserManagementConfigExtensionTest extends FunctionalTest
         $exportfields = $this->siteconfig->getExportFieldNames();
         $this->assertNotEmpty($exportfields, "export fields should be returned");
     }
+    
+    /**
+   * CMS fields test
+   **/
+    public function testgetCMSFields()
+    {
+       
+        $fields = $this->siteconfig->getCMSFields();
+        $this->assertNotEmpty($fields, "All fields exists in Sitconfig");
+    }
 }

@@ -19,4 +19,10 @@ class ViewableuserInfoExtensionTest extends FunctionalTest
         $data = ViewableuserInfoExtension::get_template_global_variables();
         $this->assertEquals("getlogoutLink", $data["LoginLink"], "Login page exists");
     }
+
+    public function testgetlogoutLink()
+    {
+        $data = ViewableuserInfoExtension::getlogoutLink();
+        $this->assertNotTrue($data, "Login page exists");
+    }
 }

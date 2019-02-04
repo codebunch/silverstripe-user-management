@@ -18,7 +18,6 @@ class UserReportTest extends FunctionalTest
     protected function setUp()
     {
         parent::setUp();
-
         $this->userReport = new UserReport;
     }
     
