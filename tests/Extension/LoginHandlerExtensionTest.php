@@ -19,11 +19,6 @@ class LoginHandlerExtensionTest extends FunctionalTest
    **/
     public function testRedirect()
     {
-        $results = [];
-        $this->get("user-registration/");
-        $this->submitForm("SignUpForm", "action_doSubmit", array("FirstName" => "John",
-            "Password[_Password]" => "admin",
-            "Password[_ConfirmPassword]" => "test", "Email" => "hellotest@cms.com"));
         $member = Member::create();
         $member->FirstName = "John";
         $member->Email = "hellotest@cms.com";
