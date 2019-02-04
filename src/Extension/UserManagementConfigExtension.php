@@ -110,9 +110,9 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLoginUrlID()
     {
-        if (!$this->owner->LoginUrl()) {
+        if (!$this->owner->LoginUrl()->ID) {
             return SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\UserLoginPage')->first();
+            ->filter('ClassName', 'UserManagement\Page\UserLoginPage')->first()->ID;
         } else {
             return $this->owner->LoginUrl()->ID;
         }
@@ -125,9 +125,9 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLoginCallBackUrlID()
     {
-        if (!$this->owner->LoginCallBackUrl()) {
+        if (!$this->owner->LoginCallBackUrl()->ID) {
             return SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\UserProfilePage')->first();
+            ->filter('ClassName', 'UserManagement\Page\UserProfilePage')->first()->ID;
         } else {
             return $this->owner->LoginCallBackUrl()->ID;
         }
@@ -140,7 +140,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getLostPasswordUrlID()
     {
-        if (!$this->owner->LostPasswordUrl()) {
+        if (!$this->owner->LostPasswordUrl()->ID) {
             return SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage')->first()->ID;
         } else {
             return $this->owner->LostPasswordUrl()->ID;
@@ -155,7 +155,7 @@ class UserManagementConfigExtension extends DataExtension
      */
     public function getCustomerGroupID()
     {
-        if (!$this->owner->CustomerGroup()) {
+        if (!$this->owner->CustomerGroup()->ID) {
             return Group::get()->filter('Title', 'general')->first()->ID;
         } else {
             return $this->owner->CustomerGroup()->ID;
