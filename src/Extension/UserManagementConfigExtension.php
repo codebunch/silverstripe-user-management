@@ -111,8 +111,12 @@ class UserManagementConfigExtension extends DataExtension
     public function getLoginUrlID()
     {
         if (!$this->owner->LoginUrl()->ID) {
-            return SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\UserLoginPage')->first()->ID;
+            $LoginUrl = SiteTree::get()
+                ->filter('ClassName', 'UserManagement\Page\UserLoginPage');
+            if($LoginUrl->count() > 0)
+                return $LoginUrl->first()->ID;
+            else
+                return;
         } else {
             return $this->owner->LoginUrl()->ID;
         }
@@ -126,8 +130,12 @@ class UserManagementConfigExtension extends DataExtension
     public function getLoginCallBackUrlID()
     {
         if (!$this->owner->LoginCallBackUrl()->ID) {
-            return SiteTree::get()
-            ->filter('ClassName', 'UserManagement\Page\UserProfilePage')->first()->ID;
+            $LoginCallBackUrl = SiteTree::get()
+            ->filter('ClassName', 'UserManagement\Page\UserProfilePage');
+            if($LoginCallBackUrl->count() > 0)
+                return $LoginCallBackUrl->first()->ID;
+            else
+                return;
         } else {
             return $this->owner->LoginCallBackUrl()->ID;
         }
@@ -141,7 +149,11 @@ class UserManagementConfigExtension extends DataExtension
     public function getLostPasswordUrlID()
     {
         if (!$this->owner->LostPasswordUrl()->ID) {
-            return SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage')->first()->ID;
+            $LostPasswordUrl = SiteTree::get()->filter('ClassName', 'UserManagement\Page\LostPasswordPage');
+            if($LostPasswordUrl->count()>0)
+                return $LostPasswordUrl->first()->ID;
+            else
+                return;
         } else {
             return $this->owner->LostPasswordUrl()->ID;
         }
@@ -156,7 +168,11 @@ class UserManagementConfigExtension extends DataExtension
     public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID) {
-            return Group::get()->filter('Title', 'general')->first()->ID;
+            $group = Group::get()->filter('Title', 'general');
+            if($group->count() > 0)
+                return Group::get()->filter('Title', 'general')->first()->ID;
+            else
+                return;
         } else {
             return $this->owner->CustomerGroup()->ID;
         }
