@@ -14,16 +14,16 @@ use SilverStripe\Security\Member;
  */
 class LoginHandlerExtensionTest extends FunctionalTest
 {
-   /**
-   *
-   **/
+  
+    protected static $fixture_file = [
+        __DIR__ . '/../user.yml'
+    ];
+
     public function testRedirect()
     {
-        $member = Member::create();
-        $member->Email = "hello334@cms.com";
-        $member->Password = "admin";
+        $member = $this->objFromFixture(Member::class, "joebloggs");
         $this->logInAs($member);
-        $page = $this->get("user-login/");  // attempt to access the user login Page
+        $page = $this->get("user-login/");
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
     }
 }
