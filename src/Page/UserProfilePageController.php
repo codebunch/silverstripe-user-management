@@ -27,7 +27,7 @@ class UserProfilePageController extends PageController
 
         $this->member = Security::getCurrentUser();
 
-        if (!$this->member or !$this->member->exists()) {
+        if (!$this->member || !$this->member->exists()) {
             $config = SiteConfig::current_site_config();
             if ($config->LoginUrl()->URLSegment) {
                 return $this->redirect($config->LoginUrl()->URLSegment);

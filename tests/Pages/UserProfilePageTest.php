@@ -24,6 +24,7 @@ class UserProfilePageTest extends FunctionalTest
         Injector::inst()->get(IdentityStore::class)->logIn($member);
         $page = $this->get("my-profile/");  // attempt to access the profile Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
+        $this->assertEquals(UserProfilePage::find_link(false), "my-profile", "My profile page exists");
     }
 
     /**
