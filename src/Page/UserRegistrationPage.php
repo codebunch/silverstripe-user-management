@@ -34,7 +34,7 @@ class UserRegistrationPage extends Page
     }
     
     /**
-     * @return UserRegistrationPage
+     * @return object
      */
     protected static function get_if_registration_page_exists()
     {

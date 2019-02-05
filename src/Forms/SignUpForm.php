@@ -27,6 +27,12 @@ class SignUpForm extends Form
 {
 
     protected $siteConfig;
+
+    private static $dependencies = [
+        'logger' => '%$Psr\Log\LoggerInterface',
+    ];
+
+    public $logger;
     /**
      * Constructor
      */

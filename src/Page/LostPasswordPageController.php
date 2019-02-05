@@ -4,6 +4,7 @@ namespace UserManagement\Page;
 use PageController;
 use SilverStripe\Security\MemberAuthenticator\LostPasswordHandler;
 use SilverStripe\Security\MemberAuthenticator\LostPasswordForm;
+use SilverStripe\Security\MemberAuthenticator\MemberAuthenticator;
 
 /**
  * Class LostPasswordPageController

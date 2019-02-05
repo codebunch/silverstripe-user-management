@@ -35,7 +35,7 @@ class LostPasswordPage extends Page
     }
 
     /**
-     * @return UserRegistrationPage
+     * @return object
      */
     protected static function get_if_forgot_password_page_exists()
     {

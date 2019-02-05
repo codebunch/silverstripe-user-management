@@ -30,6 +30,7 @@ class UserRegistrationPageController extends PageController
     }
 
     /**
+     * @method string enableSpamProtection()
      * @return object
      */
     public function SignUpForm()

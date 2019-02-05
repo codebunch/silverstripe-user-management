@@ -19,7 +19,7 @@ class ViewableuserInfoExtension extends Extension implements TemplateGlobalProvi
     /**
      * Returns logout link
      *
-     * @return html
+     * @return string|bool
      */
     public static function getlogoutLink()
     {

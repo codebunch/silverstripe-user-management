@@ -35,7 +35,7 @@ class UserProfilePage extends Page
     }
 
     /**
-     * @return UserRegistrationPage
+     * @return object
      */
     protected static function get_if_profile_page_exists()
     {
