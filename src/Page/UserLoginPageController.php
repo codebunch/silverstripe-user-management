@@ -2,7 +2,7 @@
 namespace UserManagement\Page;
 
 use PageController;
-use SilverStripe\Security\Member;
+use SilverStripe\Security\Security;
 use SilverStripe\Security\MemberAuthenticator\MemberAuthenticator;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -19,7 +19,7 @@ class UserLoginPageController extends PageController
     public function init()
     {
         parent::init();
-        $member = Member::getCurrentUser();
+        $member = Security::getCurrentUser();
         if ($member && $member->exists()) {
             $config = SiteConfig::current_site_config();
             if ($config->LoginCallBackUrl()->URLSegment) {
