@@ -2,9 +2,10 @@
 namespace UserManagement\Page;
 
 use PageController;
-use SilverStripe\Security\Member;
 use UserManagement\Forms\SignUpForm;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Security\Security;
+
 
 /**
  * Class UserRegistrationPageController
@@ -20,7 +21,7 @@ class UserRegistrationPageController extends PageController
     public function init()
     {
         parent::init();
-        $member = Member::getCurrentUser();
+        $member = Security::getCurrentUser();
         if ($member && $member->exists()) {
             $config = SiteConfig::current_site_config();
             if ($config->LoginCallBackUrl()->URLSegment) {
