@@ -20,6 +20,6 @@ class UserLoginPageTest extends FunctionalTest
     {
         $page = $this->get("user-login/");  // attempt to access the user login Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
-        $this->assertEquals(UserLoginPage::find_link(false), "user-login", "User Login page exists");
+        $this->assertEquals(UserLoginPage::find_link(false), "/user-login/", "User Login page exists");
     }
 }

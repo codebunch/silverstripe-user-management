@@ -21,7 +21,7 @@ class LostPasswordPageTest extends FunctionalTest
        
         $page = $this->get("forgotten-password/");  // attempt to access the Lost Forgot Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
-        $this->assertEquals(LostPasswordPage::find_link(false), "forgotten-password", "LostPasswordPage exists");
+        $this->assertEquals(LostPasswordPage::find_link(false), "/forgotten-password/", "LostPasswordPage exists");
     }
 
 
