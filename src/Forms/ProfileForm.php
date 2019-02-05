@@ -31,7 +31,7 @@ class ProfileForm extends SignUpForm
         $fieldList->removeByName('Password');
         $fieldList->removeByName('Email');
         $this->setAttribute('id', 'ProfileForm');
-        $fieldList->insertBefore(ReadOnlyField::create("Email", "Email", $member->Email), 'Mobile');
+        $fieldList->insertBefore(ReadOnlyField::create("Email", "Email", $member->Email), "Mobile");
         return $fieldList;
     }
 

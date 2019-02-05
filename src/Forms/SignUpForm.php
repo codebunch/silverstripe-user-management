@@ -16,7 +16,6 @@ use SilverStripe\Security\Security;
 use SilverStripe\Security\RequestAuthenticationHandler;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Security\IdentityStore;
-use Psr\Log\LoggerInterface;
 
 /**
  * Class SignUpForm
@@ -27,12 +26,7 @@ class SignUpForm extends Form
 {
 
     protected $siteConfig;
-
-    private static $dependencies = [
-        'logger' => '%$Psr\Log\LoggerInterface',
-    ];
-
-    public $logger;
+    
     /**
      * Constructor
      */
@@ -64,7 +58,7 @@ class SignUpForm extends Form
             //$this->sessionMessage('Profile Created!', 'good');
             return $this->controller->redirect($this->siteConfig->LoginCallBackUrl()->URLSegment); #TODO
         } catch (\Exception $e) {
-            $this->logger->log('Error occured in signup');
+            user_error("Error occured in signup", E_USER_WARNING);
         }
     }
 

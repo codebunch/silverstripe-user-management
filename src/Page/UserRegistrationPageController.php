@@ -37,7 +37,7 @@ class UserRegistrationPageController extends PageController
     {
         $form = new SignUpForm($this, 'SignUpForm');
         $config = SiteConfig::current_site_config();
-        if ($config->EnableSpamProtection) {
+        if ($config->EnableSpamProtection && class_exists('UndefinedOffset\NoCaptcha\Forms\NocaptchaField')) {
             $form->enableSpamProtection();
         }
         return $form;
