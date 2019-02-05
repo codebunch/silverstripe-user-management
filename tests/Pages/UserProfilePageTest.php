@@ -46,4 +46,10 @@ class UserProfilePageTest extends FunctionalTest
             'testMyForm() returns the email from profile page.'
         );
     }
+
+    public function testCanCreate()
+    {
+        UserProfilePage::create()->canCreate();
+        $this->markTestIncomplete('Can create');
+    }
 }

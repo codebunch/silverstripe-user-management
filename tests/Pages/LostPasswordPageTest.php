@@ -41,4 +41,12 @@ class LostPasswordPageTest extends FunctionalTest
             'testLostPasswordForm() sends email'
         );
     }
+
+    public function testCanCreate()
+    {
+        LostPasswordPage::create()->canCreate();
+        $this->markTestIncomplete('Can create');
+    }
+
+
 }

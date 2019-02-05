@@ -22,4 +22,10 @@ class UserLoginPageTest extends FunctionalTest
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
         $this->assertEquals(UserLoginPage::find_link(false), "/user-login/", "User Login page exists");
     }
+
+    public function testCanCreate()
+    {
+        UserLoginPage::create()->canCreate();
+        $this->markTestIncomplete('Can create');
+    }
 }
