@@ -6,6 +6,7 @@ use SilverStripe\Dev\FunctionalTest;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\IdentityStore;
 use SilverStripe\Core\Injector\Injector;
+use UserManagement\Page\UserProfilePage;
 
 /**
  * Class UserProfilePageTest

@@ -3,6 +3,7 @@
 namespace UserManagement\Tests;
 
 use SilverStripe\Dev\FunctionalTest;
+use UserManagement\Page\UserLoginPage;
 
 /**
  * Class UserLoginPageTest
