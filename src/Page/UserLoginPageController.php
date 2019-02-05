@@ -19,7 +19,7 @@ class UserLoginPageController extends PageController
     public function init()
     {
         parent::init();
-        $member = Member::currentUser();
+        $member = Member::getCurrentUser();
         if ($member && $member->exists()) {
             $config = SiteConfig::current_site_config();
             if ($config->LoginCallBackUrl()->URLSegment) {

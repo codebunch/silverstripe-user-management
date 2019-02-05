@@ -14,8 +14,6 @@ use SilverStripe\Security\Member;
  */
 class UserProfilePage extends Page
 {
-    private static $table_name = 'UserManagement_UserProfilePage';
-
     public function canCreate($member = null, $context = array())
     {
         return !self::get()->exists();

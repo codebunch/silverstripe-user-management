@@ -12,9 +12,7 @@ use SilverStripe\ORM\DB;
  */
 class UserRegistrationPage extends Page
 {
-   
-    private static $table_name = 'UserManagement_UserRegistrationPage';
-    
+
     public function canCreate($member = null, $context = array())
     {
         return !self::get()->exists();
