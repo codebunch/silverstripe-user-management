@@ -44,7 +44,7 @@ class LostPasswordPageTest extends FunctionalTest
 
     public function testCanCreate()
     {
-        LostPasswordPage::create()->canCreate();
-        $this->markTestIncomplete('Can create');
+        $canCreate = LostPasswordPage::create()->canCreate();
+        $this->assertNotTrue($canCreate, "Can create");
     }
 }

@@ -25,7 +25,7 @@ class UserLoginPageTest extends FunctionalTest
 
     public function testCanCreate()
     {
-        UserLoginPage::create()->canCreate();
-        $this->markTestIncomplete('Can create');
+        $canCreate = UserLoginPage::create()->canCreate();
+        $this->assertNotTrue($canCreate, "Can create");
     }
 }

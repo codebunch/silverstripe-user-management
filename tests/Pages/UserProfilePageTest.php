@@ -49,7 +49,7 @@ class UserProfilePageTest extends FunctionalTest
 
     public function testCanCreate()
     {
-        UserProfilePage::create()->canCreate();
-        $this->markTestIncomplete('Can create');
+        $canCreate = UserProfilePage::create()->canCreate();
+        $this->assertNotTrue($canCreate, "Can create");
     }
 }

@@ -22,4 +22,10 @@ class UserRegistrationPageTest extends FunctionalTest
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
         $this->assertEquals(UserRegistrationPage::find_link(false), "/user-registration/", "user-registration page exists");
     }
+
+    public function testCanCreate()
+    {
+        $canCreate = UserRegistrationPage::create()->canCreate();
+        $this->assertNotTrue($canCreate, "Can create");
+    }
 }
