@@ -6,7 +6,6 @@ use UserManagement\Forms\SignUpForm;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\Security;
 
-
 /**
  * Class UserRegistrationPageController
  *
