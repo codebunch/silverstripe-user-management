@@ -16,7 +16,7 @@ class LoginHandlerExtensionTest extends FunctionalTest
 {
   
     protected static $fixture_file = [
-        __DIR__ . 'Fixtures/user.yml'
+        __DIR__ . '/../Fixtures/user.yml'
     ];
 
     public function testRedirect()
