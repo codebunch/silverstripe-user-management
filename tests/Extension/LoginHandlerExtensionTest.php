@@ -22,6 +22,5 @@ class LoginHandlerExtensionTest extends FunctionalTest
     public function testRedirect()
     {
         $member = $this->objFromFixture(Member::class, "joebloggs");
-        $this->logInAs($member);
     }
 }
