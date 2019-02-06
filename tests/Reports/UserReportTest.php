@@ -36,23 +36,21 @@ class UserReportTest extends FunctionalTest
      */
     public function testsourceRecords()
     {
-        $params[0][] = ["StartPeriod" => ""];
+        $params = array();
         
-        $params[1][] = ["StartPeriod" => "01/02/2019",
+        $params = ["StartPeriod" => "01/02/2019",
         "EndPeriod" => "08/02/2019", "FirstName" => "Test"];
     
         $this->sourceRecords($params);
     }
 
-    public function sourceRecords($parameter)
+    public function sourceRecords($params)
     {
-        foreach ($parameter as $params) {
-            $getsourcerecords = count($this->userReport->sourceRecords($params));
-            if ($getsourcerecords) {
-                $this->assertLessThan($getsourcerecords, "0", "Source records validation");
-            } else {
-                $this->assertEquals($getsourcerecords, "0", "Source records validation");
-            }
+        $getsourcerecords = count($this->userReport->sourceRecords($params));
+        if ($getsourcerecords) {
+            $this->assertLessThan($getsourcerecords, "0", "Source records validation");
+        } else {
+            $this->assertEquals($getsourcerecords, "0", "Source records validation");
         }
     }
 
