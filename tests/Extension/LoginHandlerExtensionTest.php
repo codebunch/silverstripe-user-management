@@ -14,11 +14,6 @@ use SilverStripe\Security\Member;
  */
 class LoginHandlerExtensionTest extends FunctionalTest
 {
-  
-    protected static $fixture_file = [
-        __DIR__ . '/../Fixtures/user.yml'
-    ];
-
     public function testRedirect()
     {
         $this->markTestIncomplete('Test user config CMS fields');
