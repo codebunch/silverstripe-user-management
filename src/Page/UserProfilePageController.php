@@ -37,7 +37,7 @@ class UserProfilePageController extends PageController
     
     /**
     * Returns the profile form
-    * @return UserManagement\Forms\ProfileForm
+    * @return \UserManagement\Forms\ProfileForm
     */
     public function ProfileForm()
     {

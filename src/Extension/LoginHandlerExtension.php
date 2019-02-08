@@ -16,7 +16,7 @@ class LoginHandlerExtension extends LoginHandler
     /**
      * Login in the user and figure out where to redirect the browser.
      * It redirect general group user to profile page. Otherwise it refers parent method.
-     * @return SilverStripe\Control\HTTPResponse
+     * @return \SilverStripe\Control\HTTPResponse
      */
     protected function redirectAfterSuccessfulLogin()
     {

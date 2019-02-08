@@ -16,7 +16,7 @@ use SilverStripe\Security\Security;
 class ProfileForm extends SignUpForm
 {
     /**
-     * @var SilverStripe\SiteConfig\SiteConfig
+     * @var \SilverStripe\SiteConfig\SiteConfig
      */
     protected $siteConfig;
 
@@ -30,7 +30,7 @@ class ProfileForm extends SignUpForm
     /**
      * Required FieldList creation on a ProfileForm
      *
-     * @return SilverStripe\Forms\FieldList
+     * @return \SilverStripe\Forms\FieldList
      */
     protected function getFormFields($controller = null)
     {
@@ -56,7 +56,7 @@ class ProfileForm extends SignUpForm
 
     /**
      * Form action, updates the user profile.
-     * @return SilverStripe\Control\HTTPResponse
+     * @return \SilverStripe\Control\HTTPResponse
      */
     public function doSubmitProfile($data, Form $form)
     {

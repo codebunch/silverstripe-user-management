@@ -46,7 +46,7 @@ class UserManagementConfigExtension extends DataExtension
     /**
      * Update the CMS fields
      *
-     * @return SilverStripe\Forms\FieldList
+     * @return \SilverStripe\Forms\FieldList
      */
     public function updateCMSFields(FieldList $fields)
     {

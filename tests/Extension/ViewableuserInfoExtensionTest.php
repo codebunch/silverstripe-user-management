@@ -14,19 +14,25 @@ use UserManagement\Extension\ViewableuserInfoExtension;
 class ViewableuserInfoExtensionTest extends FunctionalTest
 {
 
+    /**
+     * Logout template variable
+     */
     public function testget_template_global_variables()
     {
         $data = ViewableuserInfoExtension::get_template_global_variables();
         $this->assertEquals("getlogoutLink", $data["LoginLink"], "Login page exists");
     }
 
+    /**
+     * Logout Link
+     */
     public function testgetlogoutLink()
     {
         $data = ViewableuserInfoExtension::getlogoutLink();
         if ($data) {
             $this->markTestIncomplete('Login page exists');
         } else {
-            $this->assertNotTrue($data, "Logout page link not exists");
+            $this->assertInternalType('string', $data);
         }
     }
 }

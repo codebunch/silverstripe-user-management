@@ -36,8 +36,6 @@ class UserReportTest extends FunctionalTest
      */
     public function testsourceRecords()
     {
-        $params = array();
-        
         $params = ["StartPeriod" => "01/02/2019",
         "EndPeriod" => "08/02/2019", "FirstName" => "Test"];
     
