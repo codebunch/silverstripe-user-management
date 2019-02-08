@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/codebunch/silverstripe-user-management.svg?branch=master)](https://travis-ci.org/codebunch/silverstripe-user-management)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/?branch=master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-[![codecov](https://codecov.io/gh/codebunch/silverstripe-user-management/branch/master/graph/badge.svg)](https://codecov.io/gh/codebunch/silverstripe-user-management)
+[![Code Coverage](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/codebunch/silverstripe-user-management/?branch=master)
 [![](https://img.shields.io/github/license/beanjuice/silverstripe-user-management.svg)](https://github.com/codebunch/silverstripe-user-management/blob/master/LICENSE)
 
     
