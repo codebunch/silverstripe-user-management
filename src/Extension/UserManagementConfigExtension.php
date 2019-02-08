@@ -203,7 +203,10 @@ class UserManagementConfigExtension extends DataExtension
     public function getExportFieldNames()
     {
         $memberFields = Member::create()->getFrontEndFields()->dataFieldNames();
-        $memberFields = array_diff($memberFields, ["FirstName", "Surname", "Email", "TempIDHash", "TempIDExpired", "AutoLoginHash", "AutoLoginExpired","PasswordEncryption","Salt","Locale", "FailedLoginCount", "LockedOutUntil", "Password", "PasswordExpiry"]);
+        $memberFields = array_diff($memberFields, ["FirstName", "Surname", "Email",
+            "TempIDHash", "TempIDExpired", "AutoLoginHash", "AutoLoginExpired",
+            "PasswordEncryption","Salt","Locale", "FailedLoginCount",
+            "LockedOutUntil", "Password", "PasswordExpiry"]);
         return array_combine($memberFields, $memberFields);
     }
 

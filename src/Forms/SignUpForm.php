@@ -38,7 +38,11 @@ class SignUpForm extends Form
     }
     
     /**
-     * Form action, Register user and redirect to the call back url with auto login.
+     * Form action, Register user and redirect to the call
+     * back url with auto login.
+     * @param array $data
+     * @param \SilverStripe\Forms\Form $form
+     *
      */
     public function doSubmit($data, Form $form)
     {
@@ -64,7 +68,8 @@ class SignUpForm extends Form
 
 
      /**
-     * @param Controller $controller the controller instance that is being passed to the form
+     * @param Controller $controller the controller instance that
+     * is being passed to the form
      * @return FieldList Fields for this form.
      */
     protected function getFormFields($controller = null)

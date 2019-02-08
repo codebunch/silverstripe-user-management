@@ -55,9 +55,9 @@ class UserReport extends Report
     }
 
     /**
-    * Returns columns names of the reports
-    * @return array
-    */
+     * Returns columns names of the reports
+     * @return array
+     */
     public function columns()
     {
         $fields = [
@@ -77,9 +77,9 @@ class UserReport extends Report
     }
     
     /**
-    * Return a FieldList of the fields that can be used to filter
-    * @return array
-    */
+     * Return a FieldList of the fields that can be used to filter
+     * @return array
+     */
     public function parameterFields()
     {
         $member = Security::getCurrentUser() ? Security::getCurrentUser() : Member::create();

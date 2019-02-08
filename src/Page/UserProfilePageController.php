@@ -26,7 +26,7 @@ class UserProfilePageController extends PageController
 
     /**
     * @var mixed
-    */  
+    */
     private $member = false;
 
     public function init()
@@ -42,6 +42,7 @@ class UserProfilePageController extends PageController
     */
     public function ProfileForm()
     {
+
         $form =  new ProfileForm($this, 'ProfileForm');
         $form->loadDataFrom($this->member);
         return $form;

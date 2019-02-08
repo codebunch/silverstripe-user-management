@@ -14,8 +14,10 @@ class GroupExtension extends DataExtension
     /**
      * Add default records to database.
      *
-     * This function is called whenever the database is built, after the database tables have all been created. Overload
-     * this to add default records when the database is built, but make sure you call parent::requireDefaultRecords().
+     * This function is called whenever the database is built, after
+     * the database tables have all been created. Overload
+     * this to add default records when the database is built,
+     * but make sure you call parent::requireDefaultRecords().
      */
     public function requireDefaultRecords()
     {
