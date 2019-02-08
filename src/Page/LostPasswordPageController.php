@@ -19,6 +19,11 @@ class LostPasswordPageController extends PageController
 
     private static $allowed_actions = array('LostPasswordForm');
 
+    /**
+     * Returns the default lost password form.
+     *
+     * @return \SilverStripe\Security\MemberAuthenticator\LostPasswordForm
+     */
     public function LostPasswordForm()
     {
         return LostPasswordForm::create(

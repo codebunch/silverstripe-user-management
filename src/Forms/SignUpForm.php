@@ -85,7 +85,6 @@ class SignUpForm extends Form
         return $fields;
     }
 
-
     /**
      * @return FieldList Actions for this form.
      */
@@ -96,7 +95,9 @@ class SignUpForm extends Form
         );
     }
 
-
+    /**
+     * Assign siteconfig object
+     */
     protected function setsiteConfig()
     {
         $this->siteConfig = SiteConfig::current_site_config();

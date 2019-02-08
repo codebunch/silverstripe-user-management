@@ -44,6 +44,9 @@ class UserReportTest extends FunctionalTest
         $this->sourceRecords($params);
     }
 
+    /**
+     * @param array $params
+     */
     public function sourceRecords($params)
     {
         $getsourcerecords = count($this->userReport->sourceRecords($params));

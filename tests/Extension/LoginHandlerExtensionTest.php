@@ -14,6 +14,9 @@ use SilverStripe\Security\Member;
  */
 class LoginHandlerExtensionTest extends FunctionalTest
 {
+    /**
+    * Login redirect
+    */
     public function testRedirect()
     {
         $this->markTestIncomplete('Test user config CMS fields');

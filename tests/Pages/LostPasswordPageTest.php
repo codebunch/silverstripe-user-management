@@ -24,7 +24,6 @@ class LostPasswordPageTest extends FunctionalTest
         $this->assertEquals(LostPasswordPage::find_link(false), "/forgotten-password/", "LostPasswordPage exists");
     }
 
-
     /**
      * Lost password form test
      */
@@ -41,7 +40,10 @@ class LostPasswordPageTest extends FunctionalTest
             'testLostPasswordForm() sends email'
         );
     }
-
+    
+    /**
+     * Can create
+     */
     public function testCanCreate()
     {
         $canCreate = LostPasswordPage::create()->canCreate();

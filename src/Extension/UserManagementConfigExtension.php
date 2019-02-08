@@ -20,6 +20,10 @@ use SilverStripe\Security\Member;
  */
 class UserManagementConfigExtension extends DataExtension
 {
+    /**
+     * DB Fields
+     * @var array
+     */
     private static $db = [
         "ProfileUpdateSuccess" => 'Text',
         "ProfileUpdatError" => 'Text',
@@ -27,7 +31,11 @@ class UserManagementConfigExtension extends DataExtension
         "ExportFields" => 'Text'
 
     ];
-    
+
+    /**
+     * One to many relationship
+     * @var array
+     */
     private static $has_one = [
         'LoginCallBackUrl' => SiteTree::class,
         'LoginUrl' => SiteTree::class,
@@ -35,6 +43,11 @@ class UserManagementConfigExtension extends DataExtension
         'CustomerGroup' => Group::class
     ];
     
+    /**
+     * Update the CMS fields
+     *
+     * @return SilverStripe\Forms\FieldList
+     */
     public function updateCMSFields(FieldList $fields)
     {
         $fields->insertBefore('Access', $usertab = Tab::create('UserManagement', 'User Management'));
@@ -146,7 +159,7 @@ class UserManagementConfigExtension extends DataExtension
     /**
      * Returns lost password page id
      *
-     * @return integer
+     * @return integer | null
      */
     public function getLostPasswordUrlID()
     {
@@ -166,7 +179,7 @@ class UserManagementConfigExtension extends DataExtension
     /**
      * Returns customer group id
      *
-     * @return integer
+     * @return integer | null
      */
     public function getCustomerGroupID()
     {
@@ -181,7 +194,12 @@ class UserManagementConfigExtension extends DataExtension
             return $this->owner->CustomerGroup()->ID;
         }
     }
-
+    
+    /**
+     * Returns the DB fields exist for Member
+     *
+     * @return array
+     */
     public function getExportFieldNames()
     {
         $memberFields = Member::create()->getFrontEndFields()->dataFieldNames();
@@ -189,6 +207,11 @@ class UserManagementConfigExtension extends DataExtension
         return array_combine($memberFields, $memberFields);
     }
 
+    /**
+     * Checks the DB status
+     *
+     * @return bool
+     */
     public function getDBstatus()
     {
         if (\SilverStripe\ORM\DB::is_active() && count(\SilverStripe\ORM\DB::table_list()) > 0) {

@@ -32,7 +32,7 @@ class UserReport extends Report
 
     /**
      * @param array $params
-     * @return ArrayList
+     * @return SilverStripe\ORM\DataList
      */
     public function sourceRecords($params)
     {
@@ -97,7 +97,7 @@ class UserReport extends Report
     * @param string $start
     * @param string $end
     * @param string $firstName
-    * @return string
+    * @return string | bool
     */
     public function FilterByDate($start, $end)
     {
@@ -115,7 +115,7 @@ class UserReport extends Report
     /**
     * @param string $firstName
     * @param string $filter
-    * @return string
+    * @return string | bool
     */
     public function FilterByName($filter, $firstName)
     {

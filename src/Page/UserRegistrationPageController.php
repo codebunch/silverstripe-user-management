@@ -13,8 +13,14 @@ use SilverStripe\Security\Security;
  */
 class UserRegistrationPageController extends PageController
 {
+    /**
+     * @var string
+     */
     private static $url_segment = 'user-registration';
 
+    /**
+     * @var array
+     */
     private static $allowed_actions = array('SignUpForm');
 
     public function init()

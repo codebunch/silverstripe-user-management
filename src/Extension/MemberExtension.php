@@ -10,6 +10,9 @@ use SilverStripe\ORM\DataExtension;
  */
 class MemberExtension extends DataExtension
 {
+    /**
+     * @var array
+     */
     private static $db = array(
         "NickName" => "Varchar(255)",
         "Gender" => "Varchar(255)",

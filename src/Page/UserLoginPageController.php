@@ -14,6 +14,9 @@ use SilverStripe\SiteConfig\SiteConfig;
  */
 class UserLoginPageController extends PageController
 {
+    /**
+     * @var string
+     */
     private static $url_segment = 'user-login';
 
     public function init()

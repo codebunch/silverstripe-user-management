@@ -15,7 +15,9 @@ use SilverStripe\Security\Security;
  */
 class ProfileForm extends SignUpForm
 {
-    
+    /**
+     * @var SilverStripe\SiteConfig\SiteConfig
+     */
     protected $siteConfig;
 
     public function __construct($controller, $name)
@@ -24,6 +26,12 @@ class ProfileForm extends SignUpForm
         $this->setsiteConfig();
         parent::__construct($controller, $name, $this->getFormFields($controller), $this->getFormActions());
     }
+
+    /**
+     * Required FieldList creation on a ProfileForm
+     *
+     * @return SilverStripe\Forms\FieldList
+     */
     protected function getFormFields($controller = null)
     {
         $member = Security::getCurrentUser();
@@ -36,6 +44,7 @@ class ProfileForm extends SignUpForm
     }
 
     /**
+     * Returns the Form action
      * @return FieldList Actions for this form.
      */
     protected function getFormActions()
@@ -47,6 +56,7 @@ class ProfileForm extends SignUpForm
 
     /**
      * Form action, updates the user profile.
+     * @return SilverStripe\Control\HTTPResponse
      */
     public function doSubmitProfile($data, Form $form)
     {
@@ -69,12 +79,18 @@ class ProfileForm extends SignUpForm
         return $this->controller->redirectBack();
     }
 
-    
+    /**
+    * Return the Message from siteconfig
+    * @return string
+    */
     public function getCustomMessage($field)
     {
         return $this->siteConfig->$field;
     }
    
+    /**
+    * Assign siteconfig object
+    */
     protected function setsiteConfig()
     {
         $this->siteConfig = SiteConfig::current_site_config();
