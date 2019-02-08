@@ -1,16 +1,8 @@
 <?php
 namespace UserManagement\Reports;
 
-use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DateField;
-use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\GridField\GridFieldConfig;
-use SilverStripe\Forms\GridField\GridFieldDataColumns;
-use SilverStripe\Forms\GridField\GridFieldExportButton;
-use SilverStripe\i18n\i18nEntityProvider;
-use SilverStripe\ORM\DataObject;
-use SilverStripe\ORM\DB;
 use SilverStripe\Reports\Report;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
@@ -29,13 +21,19 @@ class UserReport extends Report
 {
     protected $periodfield = '"Member"."Created"';
 
-     // the name of the report
+    /**
+     * It returns Tile of the report
+     * @return string
+     */
     public function title()
     {
         return 'Customer List';
     }
 
-    // what we want the report to return
+    /**
+     * @param array $params
+     * @return ArrayList
+     */
     public function sourceRecords($params)
     {
         
@@ -49,14 +47,17 @@ class UserReport extends Report
         }
         $config = SiteConfig::current_site_config();
         $member = Member::get()->filter('Groups.Title', $config->CustomerGroup()->Title);
-        $filter = $this->applyFilter($start, $end, $firstName);
-        if ($filter) {
+        $filter = $this->FilterByDate($start, $end);
+        if ($this->FilterByName($filter, $firstName)) {
             return $member->where($filter);
         }
         return $member;
     }
 
-    // which fields on that object we want to show
+    /**
+    * Returns columns names of the reports
+    * @return array
+    */
     public function columns()
     {
         $fields = [
@@ -74,7 +75,11 @@ class UserReport extends Report
 
         return $fields;
     }
-
+    
+    /**
+    * Return a FieldList of the fields that can be used to filter
+    * @return array
+    */
     public function parameterFields()
     {
         $member = Security::getCurrentUser() ? Security::getCurrentUser() : Member::create();
@@ -87,8 +92,14 @@ class UserReport extends Report
         
         return $fields;
     }
-
-    public function applyFilter($start, $end, $firstName)
+    
+    /**
+    * @param string $start
+    * @param string $end
+    * @param string $firstName
+    * @return string
+    */
+    public function FilterByDate($start, $end)
     {
         $filter = false;
         if ($start && $end) {
@@ -98,10 +109,19 @@ class UserReport extends Report
         } elseif ($end) {
             $filter = "Member.Created <= '$end'";
         }
+        return $filter;
+    }
+
+    /**
+    * @param string $firstName
+    * @param string $filter
+    * @return string
+    */
+    public function FilterByName($filter, $firstName)
+    {
         if ($firstName) {
             $filter = ($filter)? $filter . " AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
         }
-
         return $filter;
     }
 }
