@@ -32,7 +32,7 @@ class ViewableuserInfoExtensionTest extends FunctionalTest
         if ($data) {
             $this->markTestIncomplete('Login page exists');
         } else {
-            $this->assertInternalType('string', $data);
+            $this->assertInternalType('false', $data);
         }
     }
 }
