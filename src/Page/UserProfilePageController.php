@@ -41,7 +41,7 @@ class UserProfilePageController extends PageController
     */
     public function ProfileForm()
     {
-        $form =  new ProfileForm($this, 'ProfileForm');
+        $form = new ProfileForm($this, 'ProfileForm');
         if ($this->member) {
             $form->loadDataFrom($this->member);
         }
