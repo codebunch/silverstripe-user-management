@@ -51,7 +51,7 @@ class SignUpForm extends Form
             $signUpPersonal = Member::create();
             $form->saveInto($signUpPersonal);
             if (isset($data['DOB']) && $data['DOB']) {
-                  $signUpPersonal->DOB = date('Y-m-d', strtotime($data['DOB']));
+                    $signUpPersonal->DOB = date('Y-m-d', strtotime($data['DOB']));
             }
             $signUpPersonal->write();
             $Member = Member::get()->byId($signUpPersonal->ID);
@@ -67,11 +67,11 @@ class SignUpForm extends Form
     }
 
 
-     /**
-     * @param Controller $controller the controller instance that
-     * is being passed to the form
-     * @return FieldList Fields for this form.
-     */
+        /**
+         * @param Controller $controller the controller instance that
+         * is being passed to the form
+         * @return FieldList Fields for this form.
+         */
     protected function getFormFields($controller = null)
     {
         $fields = FieldList::create(

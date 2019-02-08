@@ -23,7 +23,7 @@ class UserProfilePageTest extends FunctionalTest
     {
         $member = Member::get()->filter("Email", "hello3@cms.com")->first();
         Injector::inst()->get(IdentityStore::class)->logIn($member);
-        $page = $this->get("my-profile/");  // attempt to access the profile Page
+        $page = $this->get("my-profile/"); // attempt to access the profile Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
         $this->assertEquals(UserProfilePage::find_link(false), "/my-profile/", "My profile page exists");
     }
@@ -42,7 +42,7 @@ class UserProfilePageTest extends FunctionalTest
 
         $this->assertEquals(
             1,
-            Member::get()->filter("Email", "hello3@cms.com")->count()>0 ? 1 : 0,
+            Member::get()->filter("Email", "hello3@cms.com")->count() > 0 ? 1 : 0,
             'testMyForm() returns the email from profile page.'
         );
     }
