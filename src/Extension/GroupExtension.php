@@ -28,7 +28,7 @@ class GroupExtension extends DataExtension
         if (!$allGroups->count()) {
             $authorGroup = new Group();
             $authorGroup->Code = 'general';
-            $authorGroup->Title = _t(__CLASS__.'.DefaultGroupTitleGeneral', 'General');
+            $authorGroup->Title = _t(__CLASS__ . '.DefaultGroupTitleGeneral', 'General');
             $authorGroup->Sort = 1;
             $authorGroup->write();
         }

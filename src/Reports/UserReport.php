@@ -120,7 +120,7 @@ class UserReport extends Report
     public function FilterByName($filter, $firstName)
     {
         if ($firstName) {
-            $filter = ($filter) ? $filter." AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
+            $filter = ($filter) ? $filter . " AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
         }
         return $filter;
     }
