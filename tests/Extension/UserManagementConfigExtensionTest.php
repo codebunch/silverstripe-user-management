@@ -74,8 +74,8 @@ class UserManagementConfigExtensionTest extends FunctionalTest
     }
     
     /**
-    * CMS fields test
-    **/
+     * CMS fields test
+     **/
     public function testgetCMSFields()
     {
         if ($this->siteconfig->getDBstatus()) {

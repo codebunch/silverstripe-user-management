@@ -94,11 +94,11 @@ class UserReport extends Report
     }
     
     /**
-    * @param string $start
-    * @param string $end
-    * @param string $firstName
-    * @return string | false
-    */
+     * @param string $start
+     * @param string $end
+     * @param string $firstName
+     * @return string | false
+     */
     public function FilterByDate($start, $end)
     {
         $filter = false;
@@ -113,14 +113,14 @@ class UserReport extends Report
     }
 
     /**
-    * @param string $firstName
-    * @param string $filter
-    * @return string | false
-    */
+     * @param string $firstName
+     * @param string $filter
+     * @return string | false
+     */
     public function FilterByName($filter, $firstName)
     {
         if ($firstName) {
-            $filter = ($filter)? $filter . " AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
+            $filter = ($filter) ? $filter." AND FirstName Like '%$firstName%'" : "FirstName Like '%$firstName%'";
         }
         return $filter;
     }

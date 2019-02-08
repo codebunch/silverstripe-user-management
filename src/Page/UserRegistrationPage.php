@@ -39,7 +39,7 @@ class UserRegistrationPage extends Page
         if ($page = DataObject::get_one(self::class)) {
             return $page;
         }
-        user_error(_t(__CLASS__ . '.NoPage', 'No UserRegistrationPage was found. 
+        user_error(_t(__CLASS__.'.NoPage', 'No UserRegistrationPage was found. 
             Please create one in the CMS!'), E_USER_ERROR);
         return null; // just to keep static analysis happy
     }

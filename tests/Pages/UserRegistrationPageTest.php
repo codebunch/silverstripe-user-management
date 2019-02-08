@@ -18,7 +18,7 @@ class UserRegistrationPageTest extends FunctionalTest
      */
     public function testfindlink()
     {
-        $page = $this->get("user-registration/");  // attempt to access the signup Page
+        $page = $this->get("user-registration/"); // attempt to access the signup Page
         $this->assertEquals(200, $page->getStatusCode(), "a page should load");
         $this->assertEquals(UserRegistrationPage::find_link(false), "/user-registration/", "user-registration page exists");
     }

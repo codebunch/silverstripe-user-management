@@ -55,7 +55,7 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TreeDropdownField::create(
                 'CustomerGroupID',
-                _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
+                _t(__CLASS__.'.CustomerGroup', 'Group to add new customers to'),
                 Group::class
             )
         );
@@ -63,7 +63,7 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TreeDropdownField::create(
                 'LoginUrlID',
-                _t(__CLASS__ . '.LoginUrl', 'Login Url'),
+                _t(__CLASS__.'.LoginUrl', 'Login Url'),
                 SiteTree::class
             )
         );
@@ -71,7 +71,7 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TreeDropdownField::create(
                 'LoginCallBackUrlID',
-                _t(__CLASS__ . '.LoginCallBackUrl', 'Login Call Back Url'),
+                _t(__CLASS__.'.LoginCallBackUrl', 'Login Call Back Url'),
                 SiteTree::class
             )
         );
@@ -79,7 +79,7 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TreeDropdownField::create(
                 'LostPasswordUrlID',
-                _t(__CLASS__ . '.LostPasswordUrl', 'Lost Password Url'),
+                _t(__CLASS__.'.LostPasswordUrl', 'Lost Password Url'),
                 SiteTree::class
             )
         );
@@ -87,21 +87,21 @@ class UserManagementConfigExtension extends DataExtension
             'Root.UserManagement',
             TextareaField::create(
                 'ProfileUpdateSuccess',
-                _t(__CLASS__ . '.ProfileUpdateSuccess', 'Profile update Success Message')
+                _t(__CLASS__.'.ProfileUpdateSuccess', 'Profile update Success Message')
             )
         );
         $fields->addFieldToTab(
             'Root.UserManagement',
             TextareaField::create(
                 'ProfileUpdatError',
-                _t(__CLASS__ . '.ProfileUpdatError', 'Profile update Error Message')
+                _t(__CLASS__.'.ProfileUpdatError', 'Profile update Error Message')
             )
         );
         $fields->addFieldToTab(
             'Root.UserManagement',
             CheckboxField::create(
                 'EnableSpamProtection',
-                _t(__CLASS__ . '.EnableSpamProtection', 'Enable Spam Protection')
+                _t(__CLASS__.'.EnableSpamProtection', 'Enable Spam Protection')
             )
         );
         
@@ -205,7 +205,7 @@ class UserManagementConfigExtension extends DataExtension
         $memberFields = Member::create()->getFrontEndFields()->dataFieldNames();
         $memberFields = array_diff($memberFields, ["FirstName", "Surname", "Email",
             "TempIDHash", "TempIDExpired", "AutoLoginHash", "AutoLoginExpired",
-            "PasswordEncryption","Salt","Locale", "FailedLoginCount",
+            "PasswordEncryption", "Salt", "Locale", "FailedLoginCount",
             "LockedOutUntil", "Password", "PasswordExpiry"]);
         return array_combine($memberFields, $memberFields);
     }
