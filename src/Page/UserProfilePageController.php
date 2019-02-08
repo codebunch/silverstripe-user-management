@@ -14,25 +14,26 @@ use SilverStripe\SiteConfig\SiteConfig;
  */
 class UserProfilePageController extends PageController
 {
+    /**
+    * @var string
+    */
     private static $url_segment = 'my-profile';
 
+    /**
+    * @var array
+    */
     private static $allowed_actions = array('ProfileForm');
 
+    /**
+    * @var mixed
+    */  
     private $member = false;
-
 
     public function init()
     {
         parent::init();
 
         $this->member = Security::getCurrentUser();
-
-        if (!$this->member || !$this->member->exists()) {
-            $config = SiteConfig::current_site_config();
-            if ($config->LoginUrl()->URLSegment) {
-                return $this->redirect($config->LoginUrl()->URLSegment);
-            }
-        }
     }
     
     /**
@@ -42,9 +43,7 @@ class UserProfilePageController extends PageController
     public function ProfileForm()
     {
         $form =  new ProfileForm($this, 'ProfileForm');
-        if ($this->member) {
-            $form->loadDataFrom($this->member);
-        }
+        $form->loadDataFrom($this->member);
         return $form;
     }
 }

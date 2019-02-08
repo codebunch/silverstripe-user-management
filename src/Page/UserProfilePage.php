@@ -59,6 +59,7 @@ class UserProfilePage extends Page
                 [
                 'Title' => 'Profile',
                 'URLSegment' => UserProfilePageController::config()->url_segment,
+                'CanViewType' => 'LoggedInUsers',
                 'ShowInMenus' => 0,
                 ]
             );
