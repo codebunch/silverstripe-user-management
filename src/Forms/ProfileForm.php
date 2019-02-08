@@ -80,17 +80,17 @@ class ProfileForm extends SignUpForm
     }
 
     /**
-    * Return the Message from siteconfig
-    * @return string
-    */
+     * Return the Message from siteconfig
+     * @return string
+     */
     public function getCustomMessage($field)
     {
         return $this->siteConfig->$field;
     }
    
     /**
-    * Assign siteconfig object
-    */
+     * Assign siteconfig object
+     */
     protected function setsiteConfig()
     {
         $this->siteConfig = SiteConfig::current_site_config();
