@@ -25,12 +25,13 @@ before_script:
   - composer install --prefer-dist
   - if [[ $PHPCS_TEST ]]; then composer require --prefer-dist --dev squizlabs/php_codesniffer ^3.0; fi
   - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
+  - composer require --prefer-dist --no-update silverstripe/recipe-cms 4.2.1@stable
   - composer update
 
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml && wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs src/ tests/ ; fi
+  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs --standard=phpcs.xml.dist src/ tests/; fi
 
   
 after_success:
