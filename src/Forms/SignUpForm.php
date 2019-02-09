@@ -47,12 +47,12 @@ class SignUpForm extends Form
     public function doSubmit($data, Form $form)
     {
        
-        try {
+        
             $signUpPersonal = Member::create();
             $form->saveInto($signUpPersonal);
-            if (isset($data['DOB']) && $data['DOB']) {
-                    $signUpPersonal->DOB = date('Y-m-d', strtotime($data['DOB']));
-            }
+        if (isset($data['DOB']) && $data['DOB']) {
+                $signUpPersonal->DOB = date('Y-m-d', strtotime($data['DOB']));
+        }
             $signUpPersonal->write();
             $Member = Member::get()->byId($signUpPersonal->ID);
             $assignGroup = $signUpPersonal->Groups();
@@ -61,9 +61,6 @@ class SignUpForm extends Form
             //TO DO
             //$this->sessionMessage('Profile Created!', 'good');
             return $this->controller->redirect($this->siteConfig->LoginCallBackUrl()->URLSegment); #TODO
-        } catch (\Exception $e) {
-            user_error("Error occured in signup", E_USER_WARNING);
-        }
     }
 
 

@@ -62,17 +62,11 @@ class ProfileForm extends SignUpForm
     {
         $member = Security::getCurrentUser();
         if ($member) {
-            try {
                 $form->saveInto($member);
                 $member->write();
                 $msg = $this->getCustomMessage('ProfileUpdateSuccess') != ""
                     ? $this->getCustomMessage('ProfileUpdateSuccess') : "Profile updated!";
                 $form->sessionMessage($msg, 'good');
-            } catch (\Exception $e) {
-                $msg = $this->getCustomMessage('ProfileUpdatError') != ""
-                    ? $this->getCustomMessage('ProfileUpdatError') : "Technical issue, Profile not updated!";
-                $form->sessionMessage($msg, 'bad');
-            }
         } else {
             return $this->controller->redirect($this->siteConfig->LoginUrl()->URLSegment);
         }
