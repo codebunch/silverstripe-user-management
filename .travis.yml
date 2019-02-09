@@ -31,7 +31,7 @@ before_script:
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml && wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs --standard=vendor/silverstripe/framework/phpcs.xml.dist src/ tests/; fi
+  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs --standard=phpcs.xml.dist src/ tests/; fi
 
   
 after_success:
