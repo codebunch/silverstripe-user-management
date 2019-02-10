@@ -12,6 +12,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Security\Member;
+use SilverStripe\Forms\DropdownField;
 
 /**
  * Class UserManagementConfigExtension
@@ -53,10 +54,10 @@ class UserManagementConfigExtension extends DataExtension
         $fields->insertBefore('Access', $usertab = Tab::create('UserManagement', 'User Management'));
         $fields->addFieldToTab(
             'Root.UserManagement',
-            TreeDropdownField::create(
+            DropdownField::create(
                 'CustomerGroupID',
                 _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
-                \SilverStripe\Security\Group::class
+                Group::get()->map('ID', 'Title')
             )
         );
         $fields->addFieldToTab(
