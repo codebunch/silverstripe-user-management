@@ -25,8 +25,7 @@ before_script:
   - export PATH=~/.composer/vendor/bin:$PATH
   - composer validate
   - if [[ $PHPCS_TEST ]]; then composer require --prefer-dist --dev squizlabs/php_codesniffer ^3.0; fi
-  - composer require --no-update --no-update silverstripe/installer:4.2.1
-  - composer require --prefer-dist --no-update silverstripe/recipe-cms 4.2.1@stable
+  - composer require --no-update silverstripe/installer:4.2.1
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
   
 script:
