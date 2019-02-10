@@ -27,8 +27,7 @@ before_script:
   - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
   - composer require --prefer-dist --no-update silverstripe/recipe-cms 4.2.1@stable
   - composer update
-  - php vendor/silverstripe/framework/cli-script.php dev/build
-
+  
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml && wget https://scrutinizer-ci.com/ocular.phar; fi
