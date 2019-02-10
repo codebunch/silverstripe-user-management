@@ -181,7 +181,7 @@ class UserManagementConfigExtension extends DataExtension
      *
      * @return integer | null
      */
-    /*public function getCustomerGroupID()
+    public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
             $group = Group::get()->filter('Title', 'general');
@@ -194,7 +194,7 @@ class UserManagementConfigExtension extends DataExtension
             return $this->owner->CustomerGroup()->ID;
         }
         return;
-    }*/
+    }
     
     /**
      * Returns the DB fields exist for Member
