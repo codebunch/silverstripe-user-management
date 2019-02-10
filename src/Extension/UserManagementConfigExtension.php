@@ -184,15 +184,16 @@ class UserManagementConfigExtension extends DataExtension
     public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
-            $group = Group::get()->filter('Title', 'General');
+            $group = Group::get()->filter('Title', 'general');
             if ($group->count() > 0) {
                 return $group->first()->ID;
             } else {
                 return;
             }
-        } else {
+        } else if ($this->getDBstatus()) {
             return $this->owner->CustomerGroup()->ID;
         }
+        return;
     }
     
     /**
