@@ -40,7 +40,7 @@ class UserManagementConfigExtension extends DataExtension
         'LoginCallBackUrl' => SiteTree::class,
         'LoginUrl' => SiteTree::class,
         'LostPasswordUrl' => SiteTree::class,
-        //'CustomerGroup' => Group::class
+        'CustomerGroup' => Group::class
     ];
     
     /**
@@ -51,14 +51,14 @@ class UserManagementConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $fields->insertBefore('Access', $usertab = Tab::create('UserManagement', 'User Management'));
-        /*$fields->addFieldToTab(
+        $fields->addFieldToTab(
             'Root.UserManagement',
             TreeDropdownField::create(
                 'CustomerGroupID',
                 _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
                 Group::class
             )
-        );*/
+        );
         $fields->addFieldToTab(
             'Root.UserManagement',
             TreeDropdownField::create(
