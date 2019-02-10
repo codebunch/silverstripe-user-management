@@ -40,7 +40,7 @@ class UserManagementConfigExtension extends DataExtension
         'LoginCallBackUrl' => SiteTree::class,
         'LoginUrl' => SiteTree::class,
         'LostPasswordUrl' => SiteTree::class,
-        'CustomerGroup' => Group::class
+        //'CustomerGroup' => Group::class
     ];
     
     /**
