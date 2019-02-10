@@ -12,6 +12,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Security\Member;
+use SilverStripe\Forms\DropdownField;
 
 /**
  * Class UserManagementConfigExtension
@@ -53,7 +54,7 @@ class UserManagementConfigExtension extends DataExtension
         $fields->insertBefore('Access', $usertab = Tab::create('UserManagement', 'User Management'));
         $fields->addFieldToTab(
             'Root.UserManagement',
-            TreeDropdownField::create(
+            DropdownField::create(
                 'CustomerGroupID',
                 _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
                 Group::get()->map('ID', 'Title')
@@ -181,7 +182,7 @@ class UserManagementConfigExtension extends DataExtension
      *
      * @return integer | null
      */
-    public function getCustomerGroupID()
+    /*public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
             $group = Group::get()->filter('Title', 'general');
@@ -190,11 +191,11 @@ class UserManagementConfigExtension extends DataExtension
             } else {
                 return;
             }
-        } elseif ($this->getDBstatus()) {
+        } else if ($this->getDBstatus()) {
             return $this->owner->CustomerGroup()->ID;
         }
         return;
-    }
+    }*/
     
     /**
      * Returns the DB fields exist for Member

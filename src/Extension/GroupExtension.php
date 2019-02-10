@@ -25,7 +25,7 @@ class GroupExtension extends DataExtension
 
         // Add default general group if doesn't exists
         $allGroups = Group::get()->filter('Title', 'general');
-        if (!$allGroups->count()) {
+        if ($allGroups->count() == 0) {
             $authorGroup = new Group();
             $authorGroup->Code = 'general';
             $authorGroup->Title = _t(__CLASS__ . '.DefaultGroupTitleGeneral', 'General');
