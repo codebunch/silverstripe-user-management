@@ -22,7 +22,7 @@ before_script:
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
   # Install composer dependencies
-  - composer install --prefer-dist
+  - composer install --prefer-source  
   - if [[ $PHPCS_TEST ]]; then composer require --prefer-dist --dev squizlabs/php_codesniffer ^3.0; fi
   - composer require --prefer-dist --no-update silverstripe/recipe-cms 4.2.1@stable
   - composer require --prefer-dist --no-update silverstripe/installer:4.2.1
