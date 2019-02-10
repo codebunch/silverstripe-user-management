@@ -56,7 +56,7 @@ class UserManagementConfigExtension extends DataExtension
             TreeDropdownField::create(
                 'CustomerGroupID',
                 _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
-                Group::class
+                Group::get()->map('ID', 'Title')
             )
         );
         $fields->addFieldToTab(
