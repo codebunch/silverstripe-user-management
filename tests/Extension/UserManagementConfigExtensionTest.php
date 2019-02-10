@@ -60,7 +60,7 @@ class UserManagementConfigExtensionTest extends FunctionalTest
     {
        
         $customergroupid = $this->siteconfig->getCustomerGroupID();
-        $this->assertNotNull($customergroupid, "lost password url exists");
+        $this->assertNull($customergroupid, "lost password url exists");
     }
 
     /**
