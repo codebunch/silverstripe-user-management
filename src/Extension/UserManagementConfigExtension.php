@@ -56,7 +56,7 @@ class UserManagementConfigExtension extends DataExtension
             TreeDropdownField::create(
                 'CustomerGroupID',
                 _t(__CLASS__ . '.CustomerGroup', 'Group to add new customers to'),
-                Group::get()->map('ID', 'Title')
+                SilverStripe\Security\Group::get()->map('ID', 'Title')
             )
         );
         $fields->addFieldToTab(
@@ -184,7 +184,7 @@ class UserManagementConfigExtension extends DataExtension
     public function getCustomerGroupID()
     {
         if (!$this->owner->CustomerGroup()->ID && $this->getDBstatus()) {
-            $group = Group::get()->filter('Title', 'general');
+            $group = SilverStripe\Security\Group::get()->filter('Title', 'general');
             if ($group->count() > 0) {
                 return $group->first()->ID;
             } else {
