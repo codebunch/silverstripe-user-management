@@ -190,7 +190,7 @@ class UserManagementConfigExtension extends DataExtension
             } else {
                 return;
             }
-        } else if ($this->getDBstatus()) {
+        } elseif ($this->getDBstatus()) {
             return $this->owner->CustomerGroup()->ID;
         }
         return;
