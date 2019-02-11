@@ -27,7 +27,6 @@ before_script:
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
   - if [[ $PHPCS_TEST ]]; then composer require --prefer-dist --dev squizlabs/php_codesniffer ^3.0; fi
   - composer require --no-update silverstripe/installer:4.2.1
-  - composer update
   
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
