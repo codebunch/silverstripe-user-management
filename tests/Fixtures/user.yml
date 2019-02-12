@@ -4,3 +4,4 @@ SilverStripe\Security\Member:
     Surname: User
     Email: test@example.com
     Password: 23u90oijlJKsa
+    GroupID: 3
