@@ -14,15 +14,15 @@ use SilverStripe\Security\Member;
  */
 class LoginHandlerExtensionTest extends SapphireTest
 {
-    public static $fixture_file = array(
+    /*public static $fixture_file = array(
         __DIR__ . '/../Fixtures/user.yml'
-    );
+    );*/
     /**
      * Login redirect
      */
     public function testRedirect()
     {
-        $member = $this->objFromFixture(Member::class, "joebloggs");
+        //$member = $this->objFromFixture(Member::class, "joebloggs");
         //$this->logInAs($member);
         $this->markTestIncomplete('Test user config CMS fields');
     }
