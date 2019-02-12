@@ -23,7 +23,7 @@ class LoginHandlerExtensionTest extends SapphireTest
     public function testRedirect()
     {
         $member = $this->objFromFixture(Member::class, "joebloggs");
-        $this->logInAs($member);
+        //$this->logInAs($member);
         $this->markTestIncomplete('Test user config CMS fields');
     }
 }
